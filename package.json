@@ -1,0 +1,31 @@
+{
+  "name": "ng2-nvd3",
+  "version": "1.0.0",
+  "description": "An Angular2 component for NVD3.js reusable charting library",
+  "keywords": [
+    "angular2",
+    "ng2",
+    "nvd3",
+    "d3",
+    "component",
+    "directive"
+  ],
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "build": "rm -rf build && tsc",
+    "prepublish": "npm run build"
+  },
+  "author": "Konstantin Skipor",
+  "license": "MIT",
+  "devDependencies": {
+    "angular2": "2.0.0-beta.3",
+    "d3": "^3.5.15",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.13",
+    "nvd3": "^1.8.2",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.11"
+  }
+}
