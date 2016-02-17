@@ -8,8 +8,8 @@
     "removeComments": true,
     "noImplicitAny": false,
     "declaration": true,
-    "sourceMap": true,
-    "outDir": "."
+    "sourceMap": false,
+    "outDir": "build"
   },
   "files": [
     "src/ng2-nvd3.ts"
