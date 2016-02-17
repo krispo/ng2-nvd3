@@ -1,6 +1,6 @@
 {
   "name": "ng2-nvd3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Angular2 component for NVD3.js reusable charting library",
   "keywords": [
     "angular2",
@@ -16,7 +16,7 @@
   "typings": "ng2-nvd3.d.ts",
   "scripts": {
     "build": "rm -rf ng2-nvd3.* && tsc",
-    "prepublish": "npm run build"
+    "postinstall": "npm run buld"
   },
   "author": "Konstantin Skipor",
   "repository": {
