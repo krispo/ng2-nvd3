@@ -1,5 +1,5 @@
 # ng2-nvd3
-An Angular2 component for NVD3.js reusable charting library
+An Angular2 component for NVD3.js reusable charting library. It has similar technique as angular-nvd3 for angular 1, but designed for angular 2 and without extra features (like extended mode) you won't need.
 
 ## Install
 
@@ -17,7 +17,7 @@ Simple discrete bar chart:
 import {Component, OnInit} from 'angular2/core';
 let d3 = require('d3');
 let nvd3 = require('nvd3');
-import {nvD3} from 'ng2-nvd3/ng2-nvd3'
+import {nvD3} from 'ng2-nvd3'
 
 @Component({
   selector: 'main',
