@@ -10,22 +10,29 @@
     "component",
     "directive"
   ],
-  "main": "index.js",
-  "typings": "index.d.ts",
+  "homepage": "https://github.com/krispo/ng2-nvd3",
+  "license": "MIT",
+  "main": "ng2-nvd3.js",
+  "typings": "ng2-nvd3.d.ts",
   "scripts": {
-    "build": "rm -rf build && tsc",
+    "build": "rm -rf ng2-nvd3.* && tsc",
     "prepublish": "npm run build"
   },
   "author": "Konstantin Skipor",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krispo/ng2-nvd3.git"
+  },
   "devDependencies": {
-    "angular2": "2.0.0-beta.3",
-    "d3": "^3.5.15",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
-    "nvd3": "^1.8.2",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "zone.js": "0.5.11"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.3",
+    "d3": "^3.5.15",
+    "nvd3": "^1.8.2"
   }
 }

@@ -5,7 +5,7 @@ An Angular2 component for NVD3.js reusable charting library
 
     npm install ng2-nvd3
     
-    it requires `angular2`, `d3` and `nvd3` as dependencies.
+it requires `angular2`, `d3` and `nvd3` as dependencies.
     
 ## Basic usage
 
