@@ -11,7 +11,7 @@
     "sourceMap": false,
     "outDir": "build"
   },
-  "files": [
-    "src/ng2-nvd3.ts"
+  "exclude": [
+    "node_modules"
   ]
 }
