@@ -1,7 +1,8 @@
-import {nvD3} from './ng2-nvd3';
-declare var describe: any;
-declare var it: any;
-declare var expect: any;
+import {bootstrap} from 'angular2/platform/browser';
+import {Component, OnInit} from 'angular2/core';
+import {nvD3} from '../lib/ng2-nvd3';
+
+declare var describe, it, expect, d3: any;
 
 describe('ng2-nvd3 tests', () => {
 
@@ -11,6 +12,6 @@ describe('ng2-nvd3 tests', () => {
 
   it('null is not the same thing as undefined', () => {
     expect(null).not.toEqual(undefined);
-  })
+  });
 
 })

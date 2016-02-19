@@ -1,5 +1,4 @@
 .idea
 node_modules
 coverage
-build/*.spec.*
-build/*.conf.*
+build/test
