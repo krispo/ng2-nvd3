@@ -1,5 +1,8 @@
 # ng2-nvd3
-An Angular2 component for NVD3.js reusable charting library. It has similar technique as angular-nvd3 for angular 1, but designed for angular 2 and without extra features (like extended mode) you won't need.
+[![Build Status](https://travis-ci.org/krispo/ng2-nvd3.svg?branch=master)](https://travis-ci.org/krispo/ng2-nvd3)
+[![NPM Version](http://img.shields.io/npm/v/ng2-nvd3.svg?style=flat)](https://www.npmjs.org/package/ng2-nvd3)
+
+Angular2 component for nvd3. It has similar technique as angular-nvd3 for angular 1, but designed for angular 2 and without extra features (like extended mode) you won't need.
 
 ## Install
 
