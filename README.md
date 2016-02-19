@@ -106,5 +106,12 @@ class Main {
 }
 ```    
 
+## Tests
+
+    npm test
+
+If anyone wants to help to test this lib for all other chart types, you can simply add respective options and data into [here](https://github.com/krispo/ng2-nvd3/blob/master/test/ng2-nvd3.spec.ts#L88) and test it. Thanks!
+I also will update it from time to time.
+
 ## License
 MIT
