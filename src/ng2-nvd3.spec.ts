@@ -1,4 +1,4 @@
-//import {nvD3} from './ng2-nvd3';
+import {nvD3} from './ng2-nvd3';
 declare var describe: any;
 declare var it: any;
 declare var expect: any;

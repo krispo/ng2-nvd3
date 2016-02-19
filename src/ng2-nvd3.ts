@@ -1,6 +1,5 @@
 import { Component, OnInit, OnChanges, ElementRef, Inject } from 'angular2/core';
-let d3 = require('d3');
-let nv = require('nvd3');
+declare var d3, nv: any;
 
 @Component({
   selector: 'nvd3',

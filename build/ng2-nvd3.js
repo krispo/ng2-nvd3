@@ -11,8 +11,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('angular2/core');
-var d3 = require('d3');
-var nv = require('nvd3');
 var nvD3 = (function () {
     function nvD3(elementRef) {
         this.el = elementRef.nativeElement;
