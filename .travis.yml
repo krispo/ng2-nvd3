@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- '4.0'
+- '4.1'
+- '5.1'
+sudo: false
+
+branch:
+  only:
+    - master
+
+script:
+  - node_modules/.bin/karma start karma.conf.js --auto-watch --single-run --reporters dots,coverage --browsers PhantomJS
