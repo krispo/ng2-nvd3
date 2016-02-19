@@ -10,14 +10,14 @@ it requires `angular2`, `d3` and `nvd3` as dependencies.
 ## Basic usage
 
 ### typescript
+Note: `d3` and `nvd3` should be also included in your project bundle.
 
 Simple discrete bar chart: 
     
 ```js
 import {Component, OnInit} from 'angular2/core';
-let d3 = require('d3');
-let nvd3 = require('nvd3');
 import {nvD3} from 'ng2-nvd3'
+declare let d3: any;
 
 @Component({
   selector: 'main',
