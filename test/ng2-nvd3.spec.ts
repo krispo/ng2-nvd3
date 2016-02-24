@@ -8,7 +8,12 @@ const chartTypes = [
   'lineChart',
   'discreteBarChart',
   'pieChart',
-  'scatterChart'
+  'scatterChart',
+  'multiBarChart',
+  'candlestickBarChart',
+  'ohlcBarChart',
+  'boxPlotChart',
+  'multiChart'
 ];
 
 //
@@ -118,6 +123,42 @@ const allOptions = {
       type: 'scatterChart',
       height: 450
     }
+  },
+  multiBarChart: {
+    chart: {
+      type: 'multiBarChart',
+      height: 450,
+      stacked: true
+    }
+  },
+  candlestickBarChart: {
+    chart:{
+      type: 'candlestickBarChart',
+      height: 450,
+      x: function(d){ return d['date']; },
+      y: function(d){ return d['close']; }
+    }
+  },
+  ohlcBarChart: {
+    chart: {
+      type: 'ohlcBarChart',
+      height: 450,
+      x: function(d){ return d['date']; },
+      y: function(d){ return d['close']; }
+    }
+  },
+  boxPlotChart: {
+    chart: {
+      type: 'boxPlotChart',
+      height: 450,
+      x: function(d){return d.label;}
+    }
+  },
+  multiChart: {
+    chart: {
+      type: 'multiChart',
+      height: 450
+    }
   }
 }
 
@@ -143,4 +184,75 @@ const allData = {
     { key: 'key1', values: [{x: 0, y: 0},{x: 1, y: 1}] },
     { key: 'key2', values: [{x: 1, y: 1},{x: 0, y: 0}] }
   ],
+  multiBarChart: [
+    {
+      key: 'Sent',
+      values: [{x: 0, y: 1}, {x: 1, y: 2}]
+    },
+    {
+      key: 'Received',
+      values: [{x: 0, y: 2}, {x: 1, y: 3}]
+    },
+    {
+      key: 'Spam',
+      values: [{x: 0, y: 3}, {x: 1, y: 5}]
+    }
+  ],
+  candlestickBarChart: [{
+    values: [
+      {"date": 15854, "open": 165.42, "high": 165.8, "low": 164.34, "close": 165.22, "volume": 160363400, "adjusted": 164.35},
+      {"date": 15855, "open": 165.35, "high": 166.59, "low": 165.22, "close": 165.83, "volume": 107793800, "adjusted": 164.96}
+    ]}
+  ],
+  ohlcBarChart: [{
+    values: [
+      {"date": 15707, "open": 145.11, "high": 146.15, "low": 144.73, "close": 146.06, "volume": 192059000, "adjusted": 144.65},
+      {"date": 15708, "open": 145.99, "high": 146.37, "low": 145.34, "close": 145.73, "volume": 144761800, "adjusted": 144.32},
+    ]}
+  ],
+  boxPlotChart: [
+    {
+      label: "Sample A",
+      values: {
+        Q1: 180,
+        Q2: 200,
+        Q3: 250,
+        whisker_low: 115,
+        whisker_high: 400,
+        outliers: [50, 100, 425]
+      }
+    }
+  ],
+  multiChart: [
+    {
+      key: 'Stream1',
+      type: 'area',
+      yAxis: 1,
+      values: [{x: 0, y: 1}, {x: 1, y: 2}]
+    },
+    {
+      key: 'Stream2',
+      type: 'area',
+      yAxis: 1,
+      values: [{x: 0, y: 2}, {x: 1, y: 3}]
+    },
+    {
+      key: 'Stream3',
+      type: 'line',
+      yAxis: 1,
+      values: [{x: 0, y: 3}, {x: 1, y: 5}]
+    },
+    {
+      key: 'Stream4',
+      type: 'line',
+      yAxis: 2,
+      values: [{x: 0, y: 3}, {x: 1, y: 5}]
+    },
+    {
+      key: 'Stream4',
+      type: 'bar',
+      yAxis: 2,
+      values: [{x: 0, y: 3}, {x: 1, y: 5}]
+    }
+  ]
 }
