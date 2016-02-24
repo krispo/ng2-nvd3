@@ -10,7 +10,9 @@ export const ChartTypes = [
   'scatterChart',
   'multiBarChart',
   'candlestickBarChart',
-  'ohlcBarChart'
+  'ohlcBarChart',
+  'boxPlotChart',
+  'donutChart'
 ];
 
 export const AllOptions = {
@@ -207,6 +209,46 @@ export const AllOptions = {
         showMaxMin: false
       }
     }
+  },
+  boxPlotChart: {
+    chart: {
+      type: 'boxPlotChart',
+      height: 450,
+      margin : {
+        top: 20,
+        right: 20,
+        bottom: 30,
+        left: 50
+      },
+      color:['darkblue', 'darkorange', 'green', 'darkred', 'darkviolet'],
+      x: function(d){return d.label;},
+      //y: function(d){return d.values.Q3;},
+      maxBoxWidth: 55,
+      yDomain: [0, 500]
+    }
+  },
+  donutChart: {
+    chart: {
+      type: 'pieChart',
+      height: 450,
+      donut: true,
+      x: function(d){return d.key;},
+      y: function(d){return d.y;},
+      showLabels: true,
+      pie: {
+        startAngle: function(d) { return d.startAngle/2 -Math.PI/2 },
+        endAngle: function(d) { return d.endAngle/2 -Math.PI/2 }
+      },
+      duration: 500,
+      legend: {
+        margin: {
+          top: 5,
+          right: 140,
+          bottom: 5,
+          left: 0
+        }
+      }
+    }
   }
 }
 
@@ -334,7 +376,72 @@ export const AllData = {
     {"date": 15737, "open": 150.65, "high": 151.42, "low": 150.39, "close": 151.24, "volume": 131173000, "adjusted": 149.78},
     {"date": 15740, "open": 150.32, "high": 151.27, "low": 149.43, "close": 149.54, "volume": 159073600, "adjusted": 148.09},
     {"date": 15741, "open": 150.35, "high": 151.48, "low": 150.29, "close": 151.05, "volume": 113912400, "adjusted": 149.59}
-  ]}]
+  ]}],
+  boxPlotChart: [
+    {
+      label: "Sample A",
+      values: {
+        Q1: 180,
+        Q2: 200,
+        Q3: 250,
+        whisker_low: 115,
+        whisker_high: 400,
+        outliers: [50, 100, 425]
+      }
+    },
+    {
+      label: "Sample B",
+      values: {
+        Q1: 300,
+        Q2: 350,
+        Q3: 400,
+        whisker_low: 225,
+        whisker_high: 425,
+        outliers: [175, 450, 480]
+      }
+    },
+    {
+      label: "Sample C",
+      values: {
+        Q1: 100,
+        Q2: 200,
+        Q3: 300,
+        whisker_low: 25,
+        whisker_high: 400,
+        outliers: [450, 475]
+      }
+    }
+  ],
+  donutChart: [
+    {
+      key: "One",
+      y: 5
+    },
+    {
+      key: "Two",
+      y: 2
+    },
+    {
+      key: "Three",
+      y: 9
+    },
+    {
+      key: "Four",
+      y: 7
+    },
+    {
+      key: "Five",
+      y: 4
+    },
+    {
+      key: "Six",
+      y: 3
+    },
+    {
+      key: "Seven",
+      y: .5
+    }
+  ]
 }
 
 // utils
