@@ -19,6 +19,7 @@ var nvD3 = (function () {
         this.updateWithOptions(this.options);
     };
     nvD3.prototype.updateWithOptions = function (options) {
+        var self = this;
         this.clearElement();
         if (!options)
             return;
@@ -93,14 +94,14 @@ var nvD3 = (function () {
         }
         this.updateWithData(this.data);
         nv.addGraph(function () {
-            if (!this.chart)
+            if (!self.chart)
                 return;
-            if (this.chart.resizeHandler)
-                this.chart.resizeHandler.clear();
-            this.chart.resizeHandler = nv.utils.windowResize(function () {
-                this.chart && this.chart.update && this.chart.update();
+            if (self.chart.resizeHandler)
+                self.chart.resizeHandler.clear();
+            self.chart.resizeHandler = nv.utils.windowResize(function () {
+                self.chart && self.chart.update && self.chart.update();
             });
-            return this.chart;
+            return self.chart;
         }, options.chart['callback']);
     };
     nvD3.prototype.updateWithData = function (data) {

@@ -23,6 +23,8 @@ export class nvD3 {
   }
 
   updateWithOptions(options){
+    let self = this;
+
     // Clearing
     this.clearElement();
 
@@ -39,7 +41,6 @@ export class nvD3 {
       if (!this.chart.hasOwnProperty(key)) continue;
 
       let value = this.chart[key];
-      //console.log(key, value)
 
       if (key[0] === '_');
       else if ([
@@ -106,17 +107,17 @@ export class nvD3 {
     this.updateWithData(this.data);
 
     nv.addGraph(function() {
-      if (!this.chart) return;
+      if (!self.chart) return;
 
       // Remove resize handler. Due to async execution should be placed here, not in the clearElement
-      if (this.chart.resizeHandler) this.chart.resizeHandler.clear();
+      if (self.chart.resizeHandler) self.chart.resizeHandler.clear();
 
       // Update the chart when window resizes
-      this.chart.resizeHandler = nv.utils.windowResize(function() {
-        this.chart && this.chart.update && this.chart.update();
+      self.chart.resizeHandler = nv.utils.windowResize(function() {
+        self.chart && self.chart.update && self.chart.update();
       });
 
-      return this.chart;
+      return self.chart;
     }, options.chart['callback']);
   }
 
