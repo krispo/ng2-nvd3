@@ -30,6 +30,12 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
     autoWatch: true,
     browsers: ['Chrome'],
+    customLaunchers: {
+      chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
     reporters: ['progress', 'coverage'],
     coverageReporter: {
       type: 'html',
@@ -38,4 +44,9 @@ module.exports = function (config) {
     exclude: [],
     port: 9876
   });
+
+  if (process.env.TRAVIS) {
+    config.browsers = ['chrome_travis_ci'];
+    config.singleRun = true;
+  }
 };
