@@ -10,10 +10,13 @@ const chartTypes = [
   'pieChart',
   'scatterChart',
   'multiBarChart',
+  'multiBarHorizontalChart',
   'candlestickBarChart',
   'ohlcBarChart',
   'boxPlotChart',
-  'multiChart'
+  'multiChart',
+  'sunburstChart',
+  'stackedAreaChart'
 ];
 
 //
@@ -159,6 +162,28 @@ const allOptions = {
       type: 'multiChart',
       height: 450
     }
+  },
+  sunburstChart: {
+    chart: {
+      type: 'sunburstChart',
+      height: 450
+    }
+  },
+  stackedAreaChart: {
+    chart: {
+      type: 'stackedAreaChart',
+      height: 450,
+      x: function(d){return d[0];},
+      y: function(d){return d[1];}
+    }
+  },
+  multiBarHorizontalChart: {
+    chart: {
+      type: 'multiBarHorizontalChart',
+      height: 450,
+      x: function(d){return d.label;},
+      y: function(d){return d.value;}
+    }
   }
 }
 
@@ -253,6 +278,79 @@ const allData = {
       type: 'bar',
       yAxis: 2,
       values: [{x: 0, y: 3}, {x: 1, y: 5}]
+    }
+  ],
+  sunburstChart: [{
+    "name": "flare",
+    "children": [
+      {
+        "name": "analytics",
+        "children": [
+          {
+            "name": "cluster",
+            "children": [
+              {"name": "AgglomerativeCluster", "size": 3938},
+              {"name": "CommunityStructure", "size": 3812},
+              {"name": "HierarchicalCluster", "size": 6714},
+              {"name": "MergeEdge", "size": 743}
+            ]
+          },
+          {
+            "name": "graph",
+            "children": [
+              {"name": "BetweennessCentrality", "size": 3534},
+              {"name": "LinkDistance", "size": 5731},
+              {"name": "MaxFlowMinCut", "size": 7840},
+              {"name": "ShortestPaths", "size": 5914},
+              {"name": "SpanningTree", "size": 3416}
+            ]
+          },
+          {
+            "name": "optimization",
+            "children": [
+              {"name": "AspectRatioBanker", "size": 7074}
+            ]
+          }
+        ]
+      }
+    ]
+  }],
+  stackedAreaChart: [
+    {
+      "key" : "North America" ,
+      "values" : [ [ 1025409600000 , 23.041422681023] , [ 1028088000000 , 19.854291255832] ]
+    },
+    {
+      "key" : "Africa" ,
+      "values" : [ [ 1025409600000 , 7.9356392949025] , [ 1028088000000 , 7.4514668527298] ]
+    }
+  ],
+  multiBarHorizontalChart: [
+    {
+      "key": "Series1",
+      "values": [
+        {
+          "label" : "Group A" ,
+          "value" : -1.8746444827653
+        } ,
+        {
+          "label" : "Group B" ,
+          "value" : -8.0961543492239
+        }
+      ]
+    },
+    {
+      "key": "Series2",
+      "values": [
+        {
+          "label" : "Group A" ,
+          "value" : 25.307646510375
+        } ,
+        {
+          "label" : "Group B" ,
+          "value" : 16.756779544553
+        }
+      ]
     }
   ]
 }
