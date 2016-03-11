@@ -75,6 +75,8 @@ export class nvD3 {
           'multibar',
           'pie',
           'scatter',
+          'scatters1',
+          'scatters2',
           'sparkline',
           'stack1',
           'stack2',

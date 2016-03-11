@@ -63,6 +63,8 @@ var nvD3 = (function () {
                 'multibar',
                 'pie',
                 'scatter',
+                'scatters1',
+                'scatters2',
                 'sparkline',
                 'stack1',
                 'stack2',
