@@ -16,7 +16,13 @@ const chartTypes = [
   'boxPlotChart',
   'multiChart',
   'sunburstChart',
-  'stackedAreaChart'
+  'stackedAreaChart',
+  'cumulativeLineChart',
+  'historicalBarChart',
+  'parallelCoordinates',
+  'sparklinePlus',
+  'bulletChart',
+  'linePlusBarWithFocusChart'
 ];
 
 //
@@ -183,6 +189,60 @@ const allOptions = {
       height: 450,
       x: function(d){return d.label;},
       y: function(d){return d.value;}
+    }
+  },
+
+  cumulativeLineChart: {
+    chart: {
+      type: 'cumulativeLineChart',
+      height: 450,
+      x: function(d){ return d[0]; },
+      y: function(d){ return d[1]/100; },
+      average: function(d) { return d.mean/100; }
+    }
+  },
+  historicalBarChart: {
+    chart: {
+      type: 'historicalBarChart',
+      height: 450,
+      x: function(d){return d[0];},
+      y: function(d){return d[1]/100000;}
+    }
+  },
+  parallelCoordinates: {
+    chart: {
+      type: 'parallelCoordinates',
+      height: 450,
+      dimensions: [
+        "economy (mpg)",
+        "cylinders",
+        "displacement (cc)",
+        "power (hp)",
+        "weight (lb)",
+        "0-60 mph (s)",
+        "year"
+      ]
+    }
+  },
+  sparklinePlus: {
+    chart: {
+      type: 'sparklinePlus',
+      height: 450,
+      x: function(d, i){return i;}
+    }
+  },
+  bulletChart: {
+    chart: {
+      type: 'bulletChart',
+      height: 450
+    }
+  },
+  linePlusBarWithFocusChart: {
+    chart: {
+      type: 'linePlusBarChart',
+      height: 500,
+      color: ['#2ca02c', 'darkred'],
+      x: function(d,i) { return i }
     }
   }
 }
@@ -351,6 +411,69 @@ const allData = {
           "value" : 16.756779544553
         }
       ]
+    }
+  ],
+
+  cumulativeLineChart: [
+    {
+      key: "Long",
+      values: [ [ 1083297600000 , -2.974623048543] , [ 1085976000000 , -1.7740300785979] ]
+      ,
+      mean: 250
+    },
+    {
+      key: "Short",
+      values: [ [ 1083297600000 , -0.77078283705125] , [ 1085976000000 , -1.8356366650335] ]
+      ,
+      mean: -60
+    }
+  ],
+  historicalBarChart: [
+    {
+      "key" : "Quantity" ,
+      "bar": true,
+      "values" : [ [ 1136005200000 , 1271000.0] , [ 1138683600000 , 1271000.0] , [ 1141102800000 , 1271000.0] ]
+    }
+  ],
+  parallelCoordinates: [
+    {
+      "name": "AMC Ambassador Brougham",
+      "economy (mpg)": "13",
+      "cylinders": "8",
+      "displacement (cc)": "360",
+      "power (hp)": "175",
+      "weight (lb)": "3821",
+      "0-60 mph (s)": "11",
+      "year": "73"
+    },
+    {
+      "name": "AMC Ambassador DPL",
+      "economy (mpg)": "15",
+      "cylinders": "8",
+      "displacement (cc)": "390",
+      "power (hp)": "190",
+      "weight (lb)": "3850",
+      "0-60 mph (s)": "8.5",
+      "year": "70"
+    }
+  ],
+  sparklinePlus: [{ x:1083297600000 , y:2.974623048543} , { x:1085976000000 , y:1.7740300785979}],
+  bulletChart: {
+    "title": "Revenue",
+    "subtitle": "US$, in thousands",
+    "ranges": [150,225,300],
+    "measures": [220],
+    "markers": [250]
+  },
+  linePlusBarWithFocusChart: [
+    {
+      "key" : "Quantity" ,
+      "bar": true,
+      "values" : [ { x:1083297600000 , y:2.974623048543} , { x:1085976000000 , y:1.7740300785979}]
+    },
+    {
+      "key" : "Price" ,
+      "values" : [ { x:1083297600000 , y:2.974623048543} , { x:1085976000000 , y:1.7740300785979}]
     }
   ]
 }
