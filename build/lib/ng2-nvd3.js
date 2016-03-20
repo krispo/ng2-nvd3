@@ -139,27 +139,28 @@ var nvD3 = (function () {
                     this.configureEvents(value, options[key]);
                 else if (key === 'tooltip')
                     this.configure(chart[key], options[key], chartType);
-                else if (key === 'contentGenerator')
+                else if (key === 'contentGenerator') {
                     if (options[key])
                         chart[key](options[key]);
-                    else if ([
-                        'axis',
-                        'clearHighlights',
-                        'defined',
-                        'highlightPoint',
-                        'nvPointerEventsClass',
-                        'options',
-                        'rangeBand',
-                        'rangeBands',
-                        'scatter',
-                        'open',
-                        'close'
-                    ].indexOf(key) === -1) {
-                        if (options[key] === undefined || options[key] === null)
-                            ;
-                        else
-                            chart[key](options[key]);
-                    }
+                }
+                else if ([
+                    'axis',
+                    'clearHighlights',
+                    'defined',
+                    'highlightPoint',
+                    'nvPointerEventsClass',
+                    'options',
+                    'rangeBand',
+                    'rangeBands',
+                    'scatter',
+                    'open',
+                    'close'
+                ].indexOf(key) === -1) {
+                    if (options[key] === undefined || options[key] === null)
+                        ;
+                    else
+                        chart[key](options[key]);
+                }
             }
         }
     };

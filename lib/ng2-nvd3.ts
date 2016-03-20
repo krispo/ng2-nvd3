@@ -158,7 +158,9 @@ export class nvD3 {
         if (key[0] === '_');
         else if (key === 'dispatch') this.configureEvents(value, options[key]);
         else if (key === 'tooltip') this.configure(chart[key], options[key], chartType);
-        else if (key === 'contentGenerator') if (options[key]) chart[key](options[key]);
+        else if (key === 'contentGenerator') {
+          if (options[key]) chart[key](options[key]);
+        }
         else if ([
             'axis',
             'clearHighlights',
