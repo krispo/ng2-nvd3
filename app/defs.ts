@@ -292,7 +292,6 @@ export const AllOptions = {
       xAxis: {
         axisLabel: 'X Axis',
         tickFormat: function(d) {
-          console.log('!!!')
           return d3.time.format('%x')(new Date(d));
         }
       },
