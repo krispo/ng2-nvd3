@@ -2,7 +2,14 @@
 [![Build Status](https://travis-ci.org/krispo/ng2-nvd3.svg?branch=master)](https://travis-ci.org/krispo/ng2-nvd3)
 [![NPM Version](http://img.shields.io/npm/v/ng2-nvd3.svg?style=flat)](https://www.npmjs.org/package/ng2-nvd3)
 
-Angular2 component for nvd3. It has similar technique as angular-nvd3 for angular 1, but designed for angular 2 and without extra features (like extended mode) you won't need.
+Angular2 component for nvd3. It has similar technique as [angular-nvd3](http://krispo.github.io/angular-nvd3) for angular 1, but designed for angular 2 and without extra features (like extended mode) you won't need.
+
+## Demos
+
+Online demos:
+
+1. [web page](http://krispo.github.io/ng2-nvd3)
+2. [plnkr](http://plnkr.co/edit/T4i7Zh?p=preview)
 
 ## Install
 
