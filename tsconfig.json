@@ -11,8 +11,11 @@
     "sourceMap": false,
     "outDir": "build"
   },
-  "exclude": [
-    "node_modules",
-    "examples"
+  "files": [
+    "lib/ng2-nvd3.ts",
+    "test/ng2-nvd3.spec.ts",
+    "test/vendor.ts",
+    "test/spec.d.ts",
+    "node_modules/angular2/typings/browser.d.ts"
   ]
 }
