@@ -26,8 +26,8 @@
     "url": "https://github.com/krispo/ng2-nvd3.git"
   },
   "devDependencies": {
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.13",
+    "es6-promise": "^3.0",
+    "es6-shim": "^0.35",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.21",
     "karma-chrome-launcher": "^0.2.2",
