@@ -1,3 +1,4 @@
+/// <reference path="../../node_modules/angular2/typings/browser.d.ts" />
 import { ElementRef } from 'angular2/core';
 export declare class nvD3 {
     options: any;

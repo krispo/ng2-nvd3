@@ -1,3 +1,4 @@
+///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
 import { Component, OnInit, OnChanges, ElementRef, Inject } from 'angular2/core';
 declare var d3, nv: any;
 
