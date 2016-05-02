@@ -3,3 +3,4 @@ build
 node_modules
 coverage
 examples
+app/ng2-nvd3.ts
