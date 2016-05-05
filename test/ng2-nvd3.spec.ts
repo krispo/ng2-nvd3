@@ -22,7 +22,8 @@ const chartTypes = [
   'parallelCoordinates',
   'sparklinePlus',
   'bulletChart',
-  'linePlusBarWithFocusChart'
+  'linePlusBarWithFocusChart',
+  'forceDirectedGraph'
 ];
 
 //
@@ -86,7 +87,7 @@ const runTests = () => {
 
             let svg = nvd3.querySelector('svg');
             expect(svg).toBeDefined();
-            expect(svg.getAttribute('height')).toEqual(options.chart.height + 'px');
+            if (options.chart.height) expect(svg.getAttribute('height')).toEqual(options.chart.height + 'px');
 
             done();
           })
@@ -243,6 +244,11 @@ const allOptions = {
       height: 500,
       color: ['#2ca02c', 'darkred'],
       x: function(d,i) { return i }
+    }
+  },
+  forceDirectedGraph: {
+    chart: {
+      type: 'forceDirectedGraph'
     }
   }
 }
@@ -475,5 +481,23 @@ const allData = {
       "key" : "Price" ,
       "values" : [ { x:1083297600000 , y:2.974623048543} , { x:1085976000000 , y:1.7740300785979}]
     }
-  ]
+  ],
+  forceDirectedGraph: {
+    "nodes":[
+      {"name":"Myriel","group":1},
+      {"name":"Napoleon","group":1},
+      {"name":"Labarre","group":2},
+      {"name":"Valjean","group":2},
+      {"name":"Marguerite","group":3},
+      {"name":"Mme.deR","group":3}
+    ],
+    "links":[
+      {"source":1,"target":0,"value":1},
+      {"source":2,"target":0,"value":8},
+      {"source":3,"target":1,"value":10},
+      {"source":3,"target":2,"value":6},
+      {"source":4,"target":0,"value":1},
+      {"source":5,"target":3,"value":1}
+    ]
+  }
 }
