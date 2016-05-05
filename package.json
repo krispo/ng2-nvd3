@@ -42,7 +42,7 @@
     "zone.js": "^0.6"
   },
   "dependencies": {
-    "angular2": "^2.0.0-beta",
+    "angular2": "2.0.0-beta.16",
     "d3": "^3.5.15",
     "nvd3": "^1.8.2"
   }
