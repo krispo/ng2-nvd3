@@ -16,6 +16,6 @@
     "test/ng2-nvd3.spec.ts",
     "test/vendor.ts",
     "test/spec.d.ts",
-    "node_modules/angular2/typings/browser.d.ts"
+    "typings/browser.d.ts"
   ]
 }

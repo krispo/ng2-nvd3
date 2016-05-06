@@ -4,3 +4,4 @@ examples
 coverage
 build/test
 app
+typings

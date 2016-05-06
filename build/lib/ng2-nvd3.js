@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var core_1 = require('angular2/core');
+var core_1 = require('@angular/core');
 var nvD3 = (function () {
     function nvD3(elementRef) {
         this.el = elementRef.nativeElement;
@@ -29,8 +30,7 @@ var nvD3 = (function () {
             if (!this.chart.hasOwnProperty(key))
                 continue;
             var value = this.chart[key];
-            if (key[0] === '_')
-                ;
+            if (key[0] === '_') { }
             else if ([
                 'clearHighlights',
                 'highlightPoint',
@@ -41,8 +41,7 @@ var nvD3 = (function () {
                 'open',
                 'close',
                 'tooltipContent'
-            ].indexOf(key) >= 0)
-                ;
+            ].indexOf(key) >= 0) { }
             else if (key === 'dispatch')
                 this.configureEvents(this.chart[key], options.chart[key]);
             else if ([
@@ -83,14 +82,10 @@ var nvD3 = (function () {
                 (key === 'stacked' && options.chart.type === 'stackedAreaChart')) {
                 this.configure(this.chart[key], options.chart[key], options.chart.type);
             }
-            else if ((key === 'xTickFormat' || key === 'yTickFormat') && options.chart.type === 'lineWithFocusChart')
-                ;
-            else if ((key === 'tooltips') && options.chart.type === 'boxPlotChart')
-                ;
-            else if ((key === 'tooltipXContent' || key === 'tooltipYContent') && options.chart.type === 'scatterChart')
-                ;
-            else if (options.chart[key] === undefined || options.chart[key] === null)
-                ;
+            else if ((key === 'xTickFormat' || key === 'yTickFormat') && options.chart.type === 'lineWithFocusChart') { }
+            else if ((key === 'tooltips') && options.chart.type === 'boxPlotChart') { }
+            else if ((key === 'tooltipXContent' || key === 'tooltipYContent') && options.chart.type === 'scatterChart') { }
+            else if (options.chart[key] === undefined || options.chart[key] === null) { }
             else
                 this.chart[key](options.chart[key]);
         }
@@ -133,8 +128,7 @@ var nvD3 = (function () {
                 if (!chart.hasOwnProperty(key))
                     continue;
                 var value = chart[key];
-                if (key[0] === '_')
-                    ;
+                if (key[0] === '_') { }
                 else if (key === 'dispatch')
                     this.configureEvents(value, options[key]);
                 else if (key === 'tooltip')
@@ -156,8 +150,7 @@ var nvD3 = (function () {
                     'open',
                     'close'
                 ].indexOf(key) === -1) {
-                    if (options[key] === undefined || options[key] === null)
-                        ;
+                    if (options[key] === undefined || options[key] === null) { }
                     else
                         chart[key](options[key]);
                 }
@@ -170,8 +163,7 @@ var nvD3 = (function () {
                 if (!dispatch.hasOwnProperty(key))
                     continue;
                 var value = dispatch[key];
-                if (options[key] === undefined || options[key] === null)
-                    ;
+                if (options[key] === undefined || options[key] === null) { }
                 else
                     dispatch.on(key + '._', options[key]);
             }
@@ -206,5 +198,5 @@ var nvD3 = (function () {
         __metadata('design:paramtypes', [core_1.ElementRef])
     ], nvD3);
     return nvD3;
-})();
+}());
 exports.nvD3 = nvD3;
