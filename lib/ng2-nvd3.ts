@@ -8,11 +8,11 @@ declare var d3, nv: any;
 })
 
 export class nvD3 {
-  options;
-  data;
-  el:any;
-  chart;
-  svg;
+  options: any;
+  data: any;
+  el: any;
+  chart: any;
+  svg: any;
 
   constructor(@Inject(ElementRef) elementRef: ElementRef) {
     this.el = elementRef.nativeElement;
