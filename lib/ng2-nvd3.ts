@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, ElementRef, Inject } from 'angular2/core';
+import { Component, OnInit, OnChanges, ElementRef, Inject } from '@angular/core';
 declare var d3, nv: any;
 
 @Component({
@@ -42,7 +42,7 @@ export class nvD3 {
 
       let value = this.chart[key];
 
-      if (key[0] === '_');
+      if (key[0] === '_'){}
       else if ([
           'clearHighlights',
           'highlightPoint',
@@ -53,7 +53,7 @@ export class nvD3 {
           'open',
           'close',
           'tooltipContent'
-        ].indexOf(key) >= 0);
+        ].indexOf(key) >= 0){}
 
       else if (key === 'dispatch') this.configureEvents(this.chart[key], options.chart[key]);
 
@@ -98,11 +98,11 @@ export class nvD3 {
       }
 
       //TODO: need to fix bug in nvd3
-      else if ((key === 'xTickFormat' || key === 'yTickFormat') && options.chart.type === 'lineWithFocusChart');
-      else if ((key === 'tooltips') && options.chart.type === 'boxPlotChart');
-      else if ((key === 'tooltipXContent' || key === 'tooltipYContent') && options.chart.type === 'scatterChart');
+      else if ((key === 'xTickFormat' || key === 'yTickFormat') && options.chart.type === 'lineWithFocusChart') {}
+      else if ((key === 'tooltips') && options.chart.type === 'boxPlotChart') {}
+      else if ((key === 'tooltipXContent' || key === 'tooltipYContent') && options.chart.type === 'scatterChart') {}
 
-      else if (options.chart[key] === undefined || options.chart[key] === null);
+      else if (options.chart[key] === undefined || options.chart[key] === null) {}
       else this.chart[key](options.chart[key]);
     }
 
@@ -155,7 +155,7 @@ export class nvD3 {
 
         let value = chart[key];
 
-        if (key[0] === '_');
+        if (key[0] === '_'){}
         else if (key === 'dispatch') this.configureEvents(value, options[key]);
         else if (key === 'tooltip') this.configure(chart[key], options[key], chartType);
         else if (key === 'contentGenerator') {
@@ -174,7 +174,7 @@ export class nvD3 {
             'open',
             'close'
           ].indexOf(key) === -1) {
-          if (options[key] === undefined || options[key] === null);
+          if (options[key] === undefined || options[key] === null){}
           else chart[key](options[key]);
         }
       }
@@ -189,7 +189,7 @@ export class nvD3 {
 
         let value = dispatch[key];
 
-        if (options[key] === undefined || options[key] === null);
+        if (options[key] === undefined || options[key] === null){}
         else dispatch.on(key + '._', options[key]);
       }
     }

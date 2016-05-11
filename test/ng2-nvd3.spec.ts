@@ -1,9 +1,9 @@
-import {bootstrap} from 'angular2/platform/browser';
-import {Component, OnInit} from 'angular2/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {Component, OnInit} from '@angular/core';
 import {nvD3} from '../lib/ng2-nvd3';
 
 declare let describe, beforeEach, it, expect, d3: any;
-declare let currentChartType: string;
+let currentChartType: string;
 const chartTypes = [
   'lineChart',
   'discreteBarChart',
