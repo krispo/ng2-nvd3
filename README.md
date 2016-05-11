@@ -15,7 +15,7 @@ Online demos:
 
     npm install ng2-nvd3
     
-it requires `angular2`, `d3` and `nvd3` as dependencies.
+it requires `angular2`, `d3` and `nvd3` as dependencies. Tested with the current `@angular` version `^2.0.0-rc.1`.
     
 ## Basic usage
 
@@ -25,7 +25,7 @@ Note: `d3` and `nvd3` should be also included in your project bundle.
 Simple discrete bar chart: 
     
 ```js
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 import {nvD3} from 'ng2-nvd3'
 declare let d3: any;
 
