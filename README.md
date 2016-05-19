@@ -39,7 +39,7 @@ declare let d3: any;
   `
 })
 
-class Main {
+export class Main implements OnInit{
   options;
   data;
   ngOnInit(){
