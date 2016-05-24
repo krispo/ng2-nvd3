@@ -19,7 +19,7 @@ it requires `angular2`, `d3` and `nvd3` as dependencies. Tested with the current
     
 ## Basic usage
 
-### typescript
+### Simple bar chart
 Note: `d3` and `nvd3` should be also included in your project bundle.
 
 Simple discrete bar chart: 
@@ -112,6 +112,39 @@ class Main {
 
 }
 ```    
+
+### Usage directive `api`
+
+No need to use `api` as in angular 1 case. We can get access to directive instance from parent component via `@ViewChild`:
+
+```js
+import {Component, OnInit, AfterInit, ViewChild} from '@angular/core';
+import {nvD3} from 'ng2-nvd3';
+
+@Component({
+  selector: 'main',
+  directives: [nvD3],
+  template: `<div><nvd3 [options]="options" [data]="data"></nvd3></div>`
+})
+export class Main {
+  options;
+  data;
+
+  @ViewChild(nvD3)
+  nvD3: nvD3;
+
+  ngOnInit(){
+    this.options = {...};
+    this.data = [...];
+  }
+
+  ngAfterViewInit() {
+    // this.nvD3 - directive instance
+    // for example, to update the chart
+    this.nvD3.chart.update()
+  } 
+}
+```
 
 ## Tests
 
