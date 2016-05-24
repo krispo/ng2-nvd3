@@ -118,7 +118,7 @@ export class Main implements OnInit{
 No need to use `api` as in angular 1 case. We can get access to directive instance from parent component via `@ViewChild`:
 
 ```js
-import {Component, OnInit, AfterInit, ViewChild} from '@angular/core';
+import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {nvD3} from 'ng2-nvd3';
 
 @Component({
