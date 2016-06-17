@@ -149,6 +149,18 @@ export class Main {
 ## Tests
 
     npm test
+    
+## Change Log
+
+#### 1.1.1 (master)
+* Angular2 - v2.0.0-rc2 
+
+#### 1.1.0
+* Angular2 - v2.0.0-rc1 
+
+#### 1.0.7
+* Angular2 - v2.0.0-beta.3 
+    
 
 ## License
 MIT
