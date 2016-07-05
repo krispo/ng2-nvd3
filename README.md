@@ -15,7 +15,7 @@ Online demos:
 
     npm install ng2-nvd3
     
-it requires `angular2`, `d3` and `nvd3` as dependencies. Tested with the current `@angular` version `^2.0.0-rc.3`.
+it requires `angular2`, `d3` and `nvd3` as dependencies. Tested with the current `@angular` version `^2.0.0-rc.4`.
     
 ## Basic usage
 
@@ -152,7 +152,10 @@ export class Main {
     
 ## Change Log
 
-#### 1.1.2 (master)
+#### 1.1.3 (master)
+* Angular2 - v2.0.0-rc4 
+
+#### 1.1.2
 * Angular2 - v2.0.0-rc3 
 
 #### 1.1.1
