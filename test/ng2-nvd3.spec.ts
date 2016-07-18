@@ -23,7 +23,8 @@ const chartTypes = [
   'sparklinePlus',
   'bulletChart',
   'linePlusBarWithFocusChart',
-  'forceDirectedGraph'
+  'forceDirectedGraph',
+  'sankeyChart'
 ];
 
 //
@@ -249,6 +250,13 @@ const allOptions = {
   forceDirectedGraph: {
     chart: {
       type: 'forceDirectedGraph'
+    }
+  },
+  sankeyChart: {
+    chart: {
+      type: 'sankeyChart',
+      width: 500,
+      height: 500
     }
   }
 }
@@ -492,6 +500,24 @@ const allData = {
       {"name":"Mme.deR","group":3}
     ],
     "links":[
+      {"source":1,"target":0,"value":1},
+      {"source":2,"target":0,"value":8},
+      {"source":3,"target":1,"value":10},
+      {"source":3,"target":2,"value":6},
+      {"source":4,"target":0,"value":1},
+      {"source":5,"target":3,"value":1}
+    ]
+  },
+  sankeyChart: {
+    "nodes":[
+      {"name":"Myriel","group":1},
+      {"name":"Napoleon","group":1},
+      {"name":"Labarre","group":2},
+      {"name":"Valjean","group":2},
+      {"name":"Marguerite","group":3},
+      {"name":"Mme.deR","group":3}
+    ],
+      "links":[
       {"source":1,"target":0,"value":1},
       {"source":2,"target":0,"value":8},
       {"source":3,"target":1,"value":10},
