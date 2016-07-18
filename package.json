@@ -49,6 +49,6 @@
     "@angular/platform-browser": "^2.0.0-rc.4",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
     "d3": "^3.5.15",
-    "nvd3": "^1.8.2"
+    "nvd3": "git://github.com/ksgy/nvd3.git"
   }
 }
