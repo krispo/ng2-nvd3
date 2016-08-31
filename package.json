@@ -12,8 +12,8 @@
   ],
   "homepage": "https://github.com/krispo/ng2-nvd3",
   "license": "MIT",
-  "main": "build/lib/ng2-nvd3.js",
-  "typings": "build/lib/ng2-nvd3.d.ts",
+  "main": "build/lib/ng2-nvd3.module.js",
+  "typings": "build/lib/ng2-nvd3.module.d.ts",
   "scripts": {
     "pretest": "npm run build",
     "test": "karma start karma.conf.js",
@@ -39,15 +39,17 @@
     "rxjs": "5.0.0-beta.6",
     "ts-loader": "^0.8",
     "typescript": "^1.8.10",
-    "typings":"^0.8.1",
+    "typings": "^0.8.1",
+    "webpack": "^1.13.2",
     "zone.js": "^0.6.12"
   },
   "dependencies": {
-    "@angular/common": "^2.0.0-rc.4",
-    "@angular/compiler": "^2.0.0-rc.4",
-    "@angular/core": "^2.0.0-rc.4",
-    "@angular/platform-browser": "^2.0.0-rc.4",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
+    "@angular/forms": "^0.3.0",
+    "@angular/common": "^2.0.0-rc.5",
+    "@angular/compiler": "^2.0.0-rc.5",
+    "@angular/core": "^2.0.0-rc.5",
+    "@angular/platform-browser": "^2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
     "d3": "^3.5.15",
     "nvd3": "^1.8.2"
   }
