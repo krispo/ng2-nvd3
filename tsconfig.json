@@ -12,7 +12,8 @@
     "outDir": "build"
   },
   "files": [
-    "lib/ng2-nvd3.ts",
+    "lib/ng2-nvd3.component.ts",
+    "lib/ng2-nvd3.module.ts",
     "test/ng2-nvd3.spec.ts",
     "test/vendor.ts",
     "test/spec.d.ts",

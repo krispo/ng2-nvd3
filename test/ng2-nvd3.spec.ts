@@ -1,6 +1,6 @@
 import {bootstrap} from '@angular/platform-browser-dynamic';
-import {Component, OnInit} from '@angular/core';
-import {nvD3} from '../lib/ng2-nvd3';
+import {Component} from '@angular/core';
+import {nvD3Component} from '../lib/ng2-nvd3.component';
 
 declare let describe, beforeEach, it, expect, d3: any;
 let currentChartType: string;
@@ -31,7 +31,7 @@ const chartTypes = [
 //
 @Component({
   selector: 'main',
-  directives: [nvD3],
+  directives: [nvD3Component],
   template: `
     <div>
       <h1 class="type">{{options.chart.type}}</h1>
@@ -56,9 +56,9 @@ const prepare = () => {
   document.body.innerHTML = '';
 
   let main = document.createElement('main');
-  main.setAttribute('class', 'main')
+  main.setAttribute('class', 'main');
   document.body.appendChild(main);
-}
+};
 
 const runTests = () => {
   describe('ng2-nvd3 tests:', () => {
@@ -71,7 +71,7 @@ const runTests = () => {
 
     it('main element should be created', () => {
       expect(document.querySelectorAll('.main').length).toEqual(1);
-    })
+    });
 
     chartTypes.forEach((type) => {
       it(type + ' chart type should be created correctly', (done) => {

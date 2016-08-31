@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-export declare class nvD3 {
+export declare class nvD3Component {
     options: any;
     data: any;
     el: any;

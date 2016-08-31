@@ -1,0 +1,36 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var ng2_nvd3_component_1 = require('./ng2-nvd3.component');
+var nvD3 = (function () {
+    function nvD3() {
+    }
+    nvD3 = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                forms_1.FormsModule
+            ],
+            declarations: [
+                ng2_nvd3_component_1.nvD3Component
+            ],
+            exports: [
+                ng2_nvd3_component_1.nvD3Component
+            ],
+            providers: []
+        }), 
+        __metadata('design:paramtypes', [])
+    ], nvD3);
+    return nvD3;
+}());
+exports.nvD3 = nvD3;
