@@ -90,7 +90,8 @@ export class nvD3 {
           'y4Axis',
           'yAxis',
           'yAxis1',
-          'yAxis2'
+          'yAxis2',
+          'sankeyChart'
         ].indexOf(key) >= 0 ||
           // stacked is a component for stackedAreaChart, but a boolean for multiBarChart and multiBarHorizontalChart
         (key === 'stacked' && options.chart.type === 'stackedAreaChart')) {
