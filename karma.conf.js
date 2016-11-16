@@ -54,4 +54,9 @@ module.exports = function (config) {
     exclude: [],
     port: 9876
   });
+
+  if (process.env.TRAVIS) {
+    config.browser = ['chrome_travis_ci'];
+    config.singleRun = true;
+  }
 };
