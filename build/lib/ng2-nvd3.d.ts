@@ -1,8 +1,10 @@
+/// <reference path="../../typings/globals/d3/index.d.ts" />
+/// <reference path="../../typings/globals/nvd3/index.d.ts" />
 import { OnChanges, ElementRef } from '@angular/core';
 export declare class nvD3 implements OnChanges {
     options: any;
     data: any;
-    el: any;
+    el: HTMLElement;
     chart: any;
     svg: any;
     constructor(elementRef: ElementRef);

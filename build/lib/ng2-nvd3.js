@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var nvD3 = (function () {
     function nvD3(elementRef) {
         this.el = elementRef.nativeElement;
@@ -171,10 +171,10 @@ var nvD3 = (function () {
         if (this.chart && this.chart.tooltip && this.chart.tooltip.id) {
             d3.select('#' + this.chart.tooltip.id()).remove();
         }
-        if (nv.graphs && this.chart) {
-            for (var i = nv.graphs.length - 1; i >= 0; i--) {
-                if (nv.graphs[i] && (nv.graphs[i].id === this.chart.id)) {
-                    nv.graphs.splice(i, 1);
+        if (nv['graphs'] && this.chart) {
+            for (var i = nv['graphs'].length - 1; i >= 0; i--) {
+                if (nv['graphs'][i] && (nv['graphs'][i].id === this.chart.id)) {
+                    nv['graphs'].splice(i, 1);
                 }
             }
         }
@@ -185,21 +185,21 @@ var nvD3 = (function () {
             this.chart.resizeHandler.clear();
         this.chart = null;
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], nvD3.prototype, "options", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], nvD3.prototype, "data", void 0);
-    nvD3 = __decorate([
-        core_1.Component({
-            selector: 'nvd3',
-            template: ""
-        }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], nvD3);
     return nvD3;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], nvD3.prototype, "options", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], nvD3.prototype, "data", void 0);
+nvD3 = __decorate([
+    core_1.Component({
+        selector: 'nvd3',
+        template: ""
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef])
+], nvD3);
 exports.nvD3 = nvD3;

@@ -1,5 +1,6 @@
+/// <reference path="../typings/globals/d3/index.d.ts" />
+/// <reference path="../typings/globals/nvd3/index.d.ts" />
 import { Component, OnChanges, ElementRef, Input } from '@angular/core';
-declare var d3, nv: any;
 
 @Component({
   selector: 'nvd3',
@@ -8,7 +9,7 @@ declare var d3, nv: any;
 export class nvD3 implements OnChanges {
   @Input() options: any;
   @Input() data: any;
-  el: any;
+  el: HTMLElement;
   chart: any;
   svg: any;
 
@@ -22,6 +23,10 @@ export class nvD3 implements OnChanges {
     this.updateWithOptions(this.options);
   }
 
+  /**
+   * Update chart with new options.
+   * @param options
+   */
   updateWithOptions(options){
     let self = this;
 
@@ -123,6 +128,10 @@ export class nvD3 implements OnChanges {
     }, options.chart['callback']);
   }
 
+  /**
+   * Update chart with new data.
+   * @param data
+   */
   updateWithData(data){
     if (data) {
       // remove whole svg element with old data
@@ -147,6 +156,12 @@ export class nvD3 implements OnChanges {
     }
   }
 
+  /**
+   * Synchronize the options with the options of the nvd3 chart.
+   * @param chart
+   * @param options
+   * @param chartType
+   */
   configure(chart, options, chartType){
     if (chart && options){
 
@@ -182,6 +197,11 @@ export class nvD3 implements OnChanges {
     }
   }
 
+  /**
+   * Configure dispatch events.
+   * @param dispatch
+   * @param options
+   */
   configureEvents(dispatch, options){
     if (dispatch && options){
       for (let key in dispatch) {
@@ -195,6 +215,9 @@ export class nvD3 implements OnChanges {
     }
   }
 
+  /**
+   * Cleanup an element.
+   */
   clearElement(){
     this.el.innerHTML = '';
 
@@ -204,10 +227,10 @@ export class nvD3 implements OnChanges {
     }
 
     // To be compatible with old nvd3 (v1.7.1)
-    if (nv.graphs && this.chart) {
-      for (var i = nv.graphs.length - 1; i >= 0; i--) {
-        if (nv.graphs[i] && (nv.graphs[i].id === this.chart.id)) {
-          nv.graphs.splice(i, 1);
+    if (nv['graphs'] && this.chart) {
+      for (var i = nv['graphs'].length - 1; i >= 0; i--) {
+        if (nv['graphs'][i] && (nv['graphs'][i].id === this.chart.id)) {
+          nv['graphs'].splice(i, 1);
         }
       }
     }
