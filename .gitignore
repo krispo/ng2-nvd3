@@ -5,4 +5,4 @@ coverage
 app
 typings
 npm-debug*.log
-build
+build/test
