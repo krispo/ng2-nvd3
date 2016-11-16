@@ -1,8 +1,12 @@
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {Component, OnInit} from '@angular/core';
-import {nvD3} from '../lib/ng2-nvd3';
+import { Component } from '@angular/core';
+import { nvD3 } from '../lib/ng2-nvd3';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
-declare let describe, beforeEach, it, expect, d3: any;
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+
+TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
+declare let d3: any;
 let currentChartType: string;
 const chartTypes = [
   'lineChart',
@@ -31,7 +35,6 @@ const chartTypes = [
 //
 @Component({
   selector: 'main',
-  directives: [nvD3],
   template: `
     <div>
       <h1 class="type">{{options.chart.type}}</h1>
@@ -39,93 +42,101 @@ const chartTypes = [
     </div>
   `
 })
-
-class Main {
-  options;
+class MainComponent {
+  options = 2;
   data;
-  ngOnInit(){
+
+  ngOnInit() {
     this.options = allOptions[currentChartType];
     this.data = allData[currentChartType];
   }
 }
 
-//
-// Define Tests
-//
-const prepare = () => {
-  document.body.innerHTML = '';
 
-  let main = document.createElement('main');
-  main.setAttribute('class', 'main')
-  document.body.appendChild(main);
-}
+describe('ng2-nvd3 tests:', () => {
+  let fixture: ComponentFixture<MainComponent>;
+  let main: MainComponent;
+  let debugElement;
 
-const runTests = () => {
-  describe('ng2-nvd3 tests:', () => {
-
-    beforeEach(prepare);
-
-    it('true is true', () => {
-      expect(true).toEqual(true)
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        nvD3,
+        MainComponent
+      ],
     });
-
-    it('main element should be created', () => {
-      expect(document.querySelectorAll('.main').length).toEqual(1);
-    })
-
-    chartTypes.forEach((type) => {
-      it(type + ' chart type should be created correctly', (done) => {
-        currentChartType = type;
-        bootstrap(Main)
-          .then((main) => {
-            let options = main.instance.options;
-            let h1 = document.querySelector('.type');
-            expect(h1.textContent).toEqual(options.chart.type);
-
-            let nvd3 = document.querySelector('nvd3');
-            expect(nvd3).toBeDefined();
-
-            let svg = nvd3.querySelector('svg');
-            expect(svg).toBeDefined();
-            if (options.chart.height) expect(svg.getAttribute('height')).toEqual(options.chart.height + 'px');
-
-            done();
-          })
-          .catch(err => console.error(err));
-      })
-    });
-
+    fixture = TestBed.createComponent(MainComponent);
+    main = fixture.debugElement.componentInstance;
+    debugElement = fixture.debugElement;
   });
-}
 
-runTests();
+  it('true is true', () => {
+    expect(true).toEqual(true)
+  });
+
+  it('main element should be created', () => {
+    expect(main).toBeTruthy();
+  });
+
+  chartTypes.forEach((type) => {
+    it(type + ' chart type should be created correctly', (done) => {
+      currentChartType = type;
+      main.ngOnInit();
+      fixture.detectChanges();
+      let options = main.options;
+      let h1 = debugElement.query(By.css('.type')).nativeElement;
+      expect(h1.textContent).toEqual(options['chart'].type);
+
+      let nvd3 = debugElement.query(By.css('nvd3')).nativeElement;
+      expect(nvd3).toBeDefined();
+
+      let svg = nvd3.querySelector('svg');
+      expect(svg).toBeDefined();
+      if (options['chart'].height) expect(svg.getAttribute('height')).toEqual(options['chart'].height + 'px');
+
+      done();
+    });
+  });
+});
 
 //
 // Options and Data definitions
 //
 const allOptions = {
-  lineChart:{
+  lineChart: {
     chart: {
       type: 'lineChart',
       height: 450,
-      x: function(d){ return d.x; },
-      y: function(d){ return d.y; }
+      x: function (d) {
+        return d.x;
+      },
+      y: function (d) {
+        return d.y;
+      }
     }
   },
   discreteBarChart: {
     chart: {
       type: 'discreteBarChart',
       height: 450,
-      x: function(d){return d.label;},
-      y: function(d){return d.value;}
+      x: function (d) {
+        return d.label;
+      },
+      y: function (d) {
+        return d.value;
+      }
     }
   },
   pieChart: {
     chart: {
       type: 'pieChart',
       height: 500,
-      x: function(d){return d.key;},
-      y: function(d){return d.y;}
+      x: function (d) {
+        return d.key;
+      },
+      y: function (d) {
+        return d.y;
+      }
     }
   },
   scatterChart: {
@@ -142,26 +153,36 @@ const allOptions = {
     }
   },
   candlestickBarChart: {
-    chart:{
+    chart: {
       type: 'candlestickBarChart',
       height: 450,
-      x: function(d){ return d['date']; },
-      y: function(d){ return d['close']; }
+      x: function (d) {
+        return d['date'];
+      },
+      y: function (d) {
+        return d['close'];
+      }
     }
   },
   ohlcBarChart: {
     chart: {
       type: 'ohlcBarChart',
       height: 450,
-      x: function(d){ return d['date']; },
-      y: function(d){ return d['close']; }
+      x: function (d) {
+        return d['date'];
+      },
+      y: function (d) {
+        return d['close'];
+      }
     }
   },
   boxPlotChart: {
     chart: {
       type: 'boxPlotChart',
       height: 450,
-      x: function(d){return d.label;}
+      x: function (d) {
+        return d.label;
+      }
     }
   },
   multiChart: {
@@ -180,16 +201,24 @@ const allOptions = {
     chart: {
       type: 'stackedAreaChart',
       height: 450,
-      x: function(d){return d[0];},
-      y: function(d){return d[1];}
+      x: function (d) {
+        return d[0];
+      },
+      y: function (d) {
+        return d[1];
+      }
     }
   },
   multiBarHorizontalChart: {
     chart: {
       type: 'multiBarHorizontalChart',
       height: 450,
-      x: function(d){return d.label;},
-      y: function(d){return d.value;}
+      x: function (d) {
+        return d.label;
+      },
+      y: function (d) {
+        return d.value;
+      }
     }
   },
 
@@ -197,17 +226,27 @@ const allOptions = {
     chart: {
       type: 'cumulativeLineChart',
       height: 450,
-      x: function(d){ return d[0]; },
-      y: function(d){ return d[1]/100; },
-      average: function(d) { return d.mean/100; }
+      x: function (d) {
+        return d[0];
+      },
+      y: function (d) {
+        return d[1] / 100;
+      },
+      average: function (d) {
+        return d.mean / 100;
+      }
     }
   },
   historicalBarChart: {
     chart: {
       type: 'historicalBarChart',
       height: 450,
-      x: function(d){return d[0];},
-      y: function(d){return d[1]/100000;}
+      x: function (d) {
+        return d[0];
+      },
+      y: function (d) {
+        return d[1] / 100000;
+      }
     }
   },
   parallelCoordinates: {
@@ -229,7 +268,9 @@ const allOptions = {
     chart: {
       type: 'sparklinePlus',
       height: 450,
-      x: function(d, i){return i;}
+      x: function (d, i) {
+        return i;
+      }
     }
   },
   bulletChart: {
@@ -243,7 +284,9 @@ const allOptions = {
       type: 'linePlusBarChart',
       height: 500,
       color: ['#2ca02c', 'darkred'],
-      x: function(d,i) { return i }
+      x: function (d, i) {
+        return i
+      }
     }
   },
   forceDirectedGraph: {
@@ -251,29 +294,29 @@ const allOptions = {
       type: 'forceDirectedGraph'
     }
   }
-}
+};
 
 const allData = {
   lineChart: [
-    { key: 'key1', values: [{x: 0, y: 0},{x: 1, y: 1}] },
-    { key: 'key2', values: [{x: 1, y: 1},{x: 0, y: 0}] }
+    {key: 'key1', values: [{x: 0, y: 0}, {x: 1, y: 1}]},
+    {key: 'key2', values: [{x: 1, y: 1}, {x: 0, y: 0}]}
   ],
   discreteBarChart: [
     {
       key: "Cumulative Return",
       values: [
-        { "label" : "A" , "value" : 10 },
-        { "label" : "B" , "value" : 20 }
+        {"label": "A", "value": 10},
+        {"label": "B", "value": 20}
       ]
     }
   ],
   pieChart: [
-    { key: "One", y: 5 },
-    { key: "Two", y: 2 }
+    {key: "One", y: 5},
+    {key: "Two", y: 2}
   ],
   scatterChart: [
-    { key: 'key1', values: [{x: 0, y: 0},{x: 1, y: 1}] },
-    { key: 'key2', values: [{x: 1, y: 1},{x: 0, y: 0}] }
+    {key: 'key1', values: [{x: 0, y: 0}, {x: 1, y: 1}]},
+    {key: 'key2', values: [{x: 1, y: 1}, {x: 0, y: 0}]}
   ],
   multiBarChart: [
     {
@@ -291,15 +334,49 @@ const allData = {
   ],
   candlestickBarChart: [{
     values: [
-      {"date": 15854, "open": 165.42, "high": 165.8, "low": 164.34, "close": 165.22, "volume": 160363400, "adjusted": 164.35},
-      {"date": 15855, "open": 165.35, "high": 166.59, "low": 165.22, "close": 165.83, "volume": 107793800, "adjusted": 164.96}
-    ]}
+      {
+        "date": 15854,
+        "open": 165.42,
+        "high": 165.8,
+        "low": 164.34,
+        "close": 165.22,
+        "volume": 160363400,
+        "adjusted": 164.35
+      },
+      {
+        "date": 15855,
+        "open": 165.35,
+        "high": 166.59,
+        "low": 165.22,
+        "close": 165.83,
+        "volume": 107793800,
+        "adjusted": 164.96
+      }
+    ]
+  }
   ],
   ohlcBarChart: [{
     values: [
-      {"date": 15707, "open": 145.11, "high": 146.15, "low": 144.73, "close": 146.06, "volume": 192059000, "adjusted": 144.65},
-      {"date": 15708, "open": 145.99, "high": 146.37, "low": 145.34, "close": 145.73, "volume": 144761800, "adjusted": 144.32},
-    ]}
+      {
+        "date": 15707,
+        "open": 145.11,
+        "high": 146.15,
+        "low": 144.73,
+        "close": 146.06,
+        "volume": 192059000,
+        "adjusted": 144.65
+      },
+      {
+        "date": 15708,
+        "open": 145.99,
+        "high": 146.37,
+        "low": 145.34,
+        "close": 145.73,
+        "volume": 144761800,
+        "adjusted": 144.32
+      },
+    ]
+  }
   ],
   boxPlotChart: [
     {
@@ -383,12 +460,12 @@ const allData = {
   }],
   stackedAreaChart: [
     {
-      "key" : "North America" ,
-      "values" : [ [ 1025409600000 , 23.041422681023] , [ 1028088000000 , 19.854291255832] ]
+      "key": "North America",
+      "values": [[1025409600000, 23.041422681023], [1028088000000, 19.854291255832]]
     },
     {
-      "key" : "Africa" ,
-      "values" : [ [ 1025409600000 , 7.9356392949025] , [ 1028088000000 , 7.4514668527298] ]
+      "key": "Africa",
+      "values": [[1025409600000, 7.9356392949025], [1028088000000, 7.4514668527298]]
     }
   ],
   multiBarHorizontalChart: [
@@ -396,12 +473,12 @@ const allData = {
       "key": "Series1",
       "values": [
         {
-          "label" : "Group A" ,
-          "value" : -1.8746444827653
-        } ,
+          "label": "Group A",
+          "value": -1.8746444827653
+        },
         {
-          "label" : "Group B" ,
-          "value" : -8.0961543492239
+          "label": "Group B",
+          "value": -8.0961543492239
         }
       ]
     },
@@ -409,12 +486,12 @@ const allData = {
       "key": "Series2",
       "values": [
         {
-          "label" : "Group A" ,
-          "value" : 25.307646510375
-        } ,
+          "label": "Group A",
+          "value": 25.307646510375
+        },
         {
-          "label" : "Group B" ,
-          "value" : 16.756779544553
+          "label": "Group B",
+          "value": 16.756779544553
         }
       ]
     }
@@ -423,22 +500,22 @@ const allData = {
   cumulativeLineChart: [
     {
       key: "Long",
-      values: [ [ 1083297600000 , -2.974623048543] , [ 1085976000000 , -1.7740300785979] ]
+      values: [[1083297600000, -2.974623048543], [1085976000000, -1.7740300785979]]
       ,
       mean: 250
     },
     {
       key: "Short",
-      values: [ [ 1083297600000 , -0.77078283705125] , [ 1085976000000 , -1.8356366650335] ]
+      values: [[1083297600000, -0.77078283705125], [1085976000000, -1.8356366650335]]
       ,
       mean: -60
     }
   ],
   historicalBarChart: [
     {
-      "key" : "Quantity" ,
+      "key": "Quantity",
       "bar": true,
-      "values" : [ [ 1136005200000 , 1271000.0] , [ 1138683600000 , 1271000.0] , [ 1141102800000 , 1271000.0] ]
+      "values": [[1136005200000, 1271000.0], [1138683600000, 1271000.0], [1141102800000, 1271000.0]]
     }
   ],
   parallelCoordinates: [
@@ -463,41 +540,43 @@ const allData = {
       "year": "70"
     }
   ],
-  sparklinePlus: [{ x:1083297600000 , y:2.974623048543} , { x:1085976000000 , y:1.7740300785979}],
+  sparklinePlus: [{x: 1083297600000, y: 2.974623048543}, {x: 1085976000000, y: 1.7740300785979}],
   bulletChart: {
     "title": "Revenue",
     "subtitle": "US$, in thousands",
-    "ranges": [150,225,300],
+    "ranges": [150, 225, 300],
     "measures": [220],
     "markers": [250]
   },
   linePlusBarWithFocusChart: [
     {
-      "key" : "Quantity" ,
+      "key": "Quantity",
       "bar": true,
-      "values" : [ { x:1083297600000 , y:2.974623048543} , { x:1085976000000 , y:1.7740300785979}]
+      "values": [{x: 1083297600000, y: 2.974623048543}, {x: 1085976000000, y: 1.7740300785979}]
     },
     {
-      "key" : "Price" ,
-      "values" : [ { x:1083297600000 , y:2.974623048543} , { x:1085976000000 , y:1.7740300785979}]
+      "key": "Price",
+      "values": [{x: 1083297600000, y: 2.974623048543}, {x: 1085976000000, y: 1.7740300785979}]
     }
   ],
   forceDirectedGraph: {
-    "nodes":[
-      {"name":"Myriel","group":1},
-      {"name":"Napoleon","group":1},
-      {"name":"Labarre","group":2},
-      {"name":"Valjean","group":2},
-      {"name":"Marguerite","group":3},
-      {"name":"Mme.deR","group":3}
+    "nodes": [
+      {"name": "Myriel", "group": 1},
+      {"name": "Napoleon", "group": 1},
+      {"name": "Labarre", "group": 2},
+      {"name": "Valjean", "group": 2},
+      {"name": "Marguerite", "group": 3},
+      {"name": "Mme.deR", "group": 3}
     ],
-    "links":[
-      {"source":1,"target":0,"value":1},
-      {"source":2,"target":0,"value":8},
-      {"source":3,"target":1,"value":10},
-      {"source":3,"target":2,"value":6},
-      {"source":4,"target":0,"value":1},
-      {"source":5,"target":3,"value":1}
+    "links": [
+      {"source": 1, "target": 0, "value": 1},
+      {"source": 2, "target": 0, "value": 8},
+      {"source": 3, "target": 1, "value": 10},
+      {"source": 3, "target": 2, "value": 6},
+      {"source": 4, "target": 0, "value": 1},
+      {"source": 5, "target": 3, "value": 1}
     ]
   }
-}
+};
+
+

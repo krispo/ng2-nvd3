@@ -8,9 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 var core_1 = require('@angular/core');
 var nvD3 = (function () {
     function nvD3(elementRef) {
@@ -188,13 +185,19 @@ var nvD3 = (function () {
             this.chart.resizeHandler.clear();
         this.chart = null;
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], nvD3.prototype, "options", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], nvD3.prototype, "data", void 0);
     nvD3 = __decorate([
         core_1.Component({
             selector: 'nvd3',
-            inputs: ['options', 'data'],
             template: ""
-        }),
-        __param(0, core_1.Inject(core_1.ElementRef)), 
+        }), 
         __metadata('design:paramtypes', [core_1.ElementRef])
     ], nvD3);
     return nvD3;

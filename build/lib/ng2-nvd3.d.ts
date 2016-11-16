@@ -1,5 +1,5 @@
-import { ElementRef } from '@angular/core';
-export declare class nvD3 {
+import { OnChanges, ElementRef } from '@angular/core';
+export declare class nvD3 implements OnChanges {
     options: any;
     data: any;
     el: any;

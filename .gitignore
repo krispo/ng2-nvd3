@@ -2,6 +2,7 @@
 node_modules
 examples
 coverage
-build/test
 app
 typings
+npm-debug*.log
+build

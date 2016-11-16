@@ -5,6 +5,16 @@ module.exports = function (config) {
       'test/vendor.ts',
       'test/*.spec.ts'
     ],
+    frameworks: ['jasmine'],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-remap-istanbul'),
+      require('karma-webpack'),
+      require('karma-sourcemap-loader'),
+      require('karma-coverage')
+
+    ],
     preprocessors: {
       'test/vendor.ts': ['webpack', 'sourcemap'],
       'test/*.spec.ts': ['webpack', 'sourcemap']
@@ -27,7 +37,6 @@ module.exports = function (config) {
     webpackServer: {
       noInfo: true
     },
-    frameworks: ['jasmine'],
     autoWatch: true,
     browsers: ['Chrome'],
     customLaunchers: {
@@ -36,17 +45,13 @@ module.exports = function (config) {
         flags: ['--no-sandbox']
       }
     },
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'karma-remap-istanbul'],
     coverageReporter: {
       type: 'html',
       dir: 'coverage/'
     },
+    colors: true,
     exclude: [],
     port: 9876
   });
-
-  if (process.env.TRAVIS) {
-    config.browsers = ['chrome_travis_ci'];
-    config.singleRun = true;
-  }
 };
