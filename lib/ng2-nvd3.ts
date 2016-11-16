@@ -1,6 +1,6 @@
 /// <reference path="../typings/globals/d3/index.d.ts" />
 /// <reference path="../typings/globals/nvd3/index.d.ts" />
-import { Component, OnChanges, ElementRef, Input } from '@angular/core';
+import { Component, OnChanges, ElementRef, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'nvd3',
@@ -19,8 +19,12 @@ export class nvD3 implements OnChanges {
     this.el = elementRef.nativeElement;
   }
 
-  ngOnChanges(){
-    this.updateWithOptions(this.options);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.hasOwnProperty('options')) {
+      this.updateWithOptions(this.options);
+    } else if (changes.hasOwnProperty('data')) {
+      this.updateWithData(this.data);
+    }
   }
 
   /**
@@ -135,12 +139,18 @@ export class nvD3 implements OnChanges {
   updateWithData(data){
     if (data) {
       // remove whole svg element with old data
-      d3.select(this.el).select('svg').remove();
 
       var h, w;
 
-      // Select the current element to add <svg> element and to render the chart in
-      this.svg = d3.select(this.el).append('svg');
+      // Select the add <svg> element (create it if necessary) and to render the chart in
+      {
+        let svgElement = this.el.querySelector('svg');
+        if (!svgElement) {
+          this.svg = d3.select(this.el).append('svg');
+        } else {
+          this.svg = d3.select(svgElement);
+        }
+      }
       if (h = this.options.chart.height) {
         if (!isNaN(+h)) h += 'px';
         this.svg.attr('height', h).style({height: h});

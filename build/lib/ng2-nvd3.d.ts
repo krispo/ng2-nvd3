@@ -1,6 +1,6 @@
 /// <reference path="../../typings/globals/d3/index.d.ts" />
 /// <reference path="../../typings/globals/nvd3/index.d.ts" />
-import { OnChanges, ElementRef } from '@angular/core';
+import { OnChanges, ElementRef, SimpleChanges } from '@angular/core';
 export declare class nvD3 implements OnChanges {
     options: any;
     data: any;
@@ -8,7 +8,7 @@ export declare class nvD3 implements OnChanges {
     chart: any;
     svg: any;
     constructor(elementRef: ElementRef);
-    ngOnChanges(): void;
+    ngOnChanges(changes: SimpleChanges): void;
     updateWithOptions(options: any): void;
     updateWithData(data: any): void;
     configure(chart: any, options: any, chartType: any): void;

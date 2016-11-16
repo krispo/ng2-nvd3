@@ -13,8 +13,13 @@ var nvD3 = (function () {
     function nvD3(elementRef) {
         this.el = elementRef.nativeElement;
     }
-    nvD3.prototype.ngOnChanges = function () {
-        this.updateWithOptions(this.options);
+    nvD3.prototype.ngOnChanges = function (changes) {
+        if (changes.hasOwnProperty('options')) {
+            this.updateWithOptions(this.options);
+        }
+        else if (changes.hasOwnProperty('data')) {
+            this.updateWithData(this.data);
+        }
     };
     nvD3.prototype.updateWithOptions = function (options) {
         var self = this;
@@ -100,9 +105,16 @@ var nvD3 = (function () {
     };
     nvD3.prototype.updateWithData = function (data) {
         if (data) {
-            d3.select(this.el).select('svg').remove();
             var h, w;
-            this.svg = d3.select(this.el).append('svg');
+            {
+                var svgElement = this.el.querySelector('svg');
+                if (!svgElement) {
+                    this.svg = d3.select(this.el).append('svg');
+                }
+                else {
+                    this.svg = d3.select(svgElement);
+                }
+            }
             if (h = this.options.chart.height) {
                 if (!isNaN(+h))
                     h += 'px';
