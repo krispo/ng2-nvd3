@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "lib": ["es6", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -13,7 +14,6 @@
   },
   "files": [
     "lib/ng2-nvd3.ts",
-    "test/ng2-nvd3.spec.ts",
-    "typings/browser.d.ts"
+    "test/ng2-nvd3.spec.ts"
   ]
 }
