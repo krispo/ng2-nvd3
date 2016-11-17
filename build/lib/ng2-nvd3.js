@@ -84,10 +84,14 @@ var nvD3 = (function () {
                 (key === 'stacked' && options.chart.type === 'stackedAreaChart')) {
                 this.configure(this.chart[key], options.chart[key], options.chart.type);
             }
-            else if ((key === 'xTickFormat' || key === 'yTickFormat') && options.chart.type === 'lineWithFocusChart') { }
-            else if ((key === 'tooltips') && options.chart.type === 'boxPlotChart') { }
-            else if ((key === 'tooltipXContent' || key === 'tooltipYContent') && options.chart.type === 'scatterChart') { }
-            else if (options.chart[key] === undefined || options.chart[key] === null) { }
+            else if ((key === 'xTickFormat' || key === 'yTickFormat') && options.chart.type === 'lineWithFocusChart') {
+            }
+            else if ((key === 'tooltips') && options.chart.type === 'boxPlotChart') {
+            }
+            else if ((key === 'tooltipXContent' || key === 'tooltipYContent') && options.chart.type === 'scatterChart') {
+            }
+            else if (options.chart[key] === undefined || options.chart[key] === null) {
+            }
             else
                 this.chart[key](options.chart[key]);
         }
@@ -105,7 +109,6 @@ var nvD3 = (function () {
     };
     nvD3.prototype.updateWithData = function (data) {
         if (data) {
-            var h, w;
             {
                 var svgElement = this.el.querySelector('svg');
                 if (!svgElement) {
@@ -115,6 +118,13 @@ var nvD3 = (function () {
                     this.svg = d3.select(svgElement);
                 }
             }
+            this.updateSize();
+            this.svg.datum(data).call(this.chart);
+        }
+    };
+    nvD3.prototype.updateSize = function () {
+        if (this.svg) {
+            var h = void 0, w = void 0;
             if (h = this.options.chart.height) {
                 if (!isNaN(+h))
                     h += 'px';
@@ -128,7 +138,6 @@ var nvD3 = (function () {
             else {
                 this.svg.attr('width', '100%').style({ width: '100%' });
             }
-            this.svg.datum(data).call(this.chart);
         }
     };
     nvD3.prototype.configure = function (chart, options, chartType) {
@@ -137,7 +146,8 @@ var nvD3 = (function () {
                 if (!chart.hasOwnProperty(key))
                     continue;
                 var value = chart[key];
-                if (key[0] === '_') { }
+                if (key[0] === '_') {
+                }
                 else if (key === 'dispatch')
                     this.configureEvents(value, options[key]);
                 else if (key === 'tooltip')
@@ -159,7 +169,8 @@ var nvD3 = (function () {
                     'open',
                     'close'
                 ].indexOf(key) === -1) {
-                    if (options[key] === undefined || options[key] === null) { }
+                    if (options[key] === undefined || options[key] === null) {
+                    }
                     else
                         chart[key](options[key]);
                 }
@@ -172,7 +183,8 @@ var nvD3 = (function () {
                 if (!dispatch.hasOwnProperty(key))
                     continue;
                 var value = dispatch[key];
-                if (options[key] === undefined || options[key] === null) { }
+                if (options[key] === undefined || options[key] === null) {
+                }
                 else
                     dispatch.on(key + '._', options[key]);
             }
