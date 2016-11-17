@@ -3,6 +3,5 @@ node_modules
 examples
 coverage
 app
-typings
 npm-debug*.log
 build/test
