@@ -14,20 +14,40 @@ var nvD3 = (function () {
         this.el = elementRef.nativeElement;
     }
     nvD3.prototype.ngOnChanges = function (changes) {
-        if (changes.hasOwnProperty('options')) {
-            this.updateWithOptions(this.options);
-        }
-        else if (changes.hasOwnProperty('data')) {
-            this.updateWithData(this.data);
+        console.log('Changes:', changes);
+        if (this.options) {
+            if (!this.chart || this.chartType !== this.options.chart.type) {
+                this.initChart(this.options);
+            }
+            else {
+                this.updateWithOptions(this.options);
+            }
         }
     };
-    nvD3.prototype.updateWithOptions = function (options) {
-        var self = this;
+    nvD3.prototype.initChart = function (options) {
+        var _this = this;
         this.clearElement();
         if (!options)
             return;
         this.chart = nv.models[options.chart.type]();
+        this.chartType = this.options.chart.type;
         this.chart.id = Math.random().toString(36).substr(2, 15);
+        this.updateWithOptions(options);
+        nv.addGraph(function () {
+            if (!_this.chart)
+                return;
+            if (_this.chart.resizeHandler)
+                _this.chart.resizeHandler.clear();
+            _this.chart.resizeHandler = nv.utils.windowResize(function () {
+                _this.chart && _this.chart.update && _this.chart.update();
+            });
+            return _this.chart;
+        }, options.chart['callback']);
+    };
+    nvD3.prototype.updateWithOptions = function (options) {
+        console.log('NVD3: Update with options');
+        if (!options)
+            return;
         for (var key in this.chart) {
             if (!this.chart.hasOwnProperty(key))
                 continue;
@@ -96,18 +116,9 @@ var nvD3 = (function () {
                 this.chart[key](options.chart[key]);
         }
         this.updateWithData(this.data);
-        nv.addGraph(function () {
-            if (!self.chart)
-                return;
-            if (self.chart.resizeHandler)
-                self.chart.resizeHandler.clear();
-            self.chart.resizeHandler = nv.utils.windowResize(function () {
-                self.chart && self.chart.update && self.chart.update();
-            });
-            return self.chart;
-        }, options.chart['callback']);
     };
     nvD3.prototype.updateWithData = function (data) {
+        console.log('NVD3: Update with data');
         if (data) {
             {
                 var svgElement = this.el.querySelector('svg');

@@ -11,6 +11,7 @@ export class nvD3 implements OnChanges {
   @Input() data: any;
   el: HTMLElement;
   chart: any;
+  chartType: string;
   svg: any;
 
   constructor(
@@ -20,11 +21,43 @@ export class nvD3 implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.hasOwnProperty('options')) {
-      this.updateWithOptions(this.options);
-    } else if (changes.hasOwnProperty('data')) {
-      this.updateWithData(this.data);
+    if (this.options) {
+      if (!this.chart || this.chartType !== this.options.chart.type) {
+        this.initChart(this.options);
+      } else {
+        this.updateWithOptions(this.options);
+      }
     }
+  }
+
+  initChart(options) {
+    // Clearing
+    this.clearElement();
+
+    if (!options) return;
+
+    // Initialize chart with specific type
+    this.chart = nv.models[options.chart.type]();
+    this.chartType = this.options.chart.type;
+
+    // Generate random chart ID
+    this.chart.id = Math.random().toString(36).substr(2, 15);
+
+    this.updateWithOptions(options);
+
+    nv.addGraph(() => {
+      if (!this.chart) return;
+
+      // Remove resize handler. Due to async execution should be placed here, not in the clearElement
+      if (this.chart.resizeHandler) this.chart.resizeHandler.clear();
+
+      // Update the chart when window resizes
+      this.chart.resizeHandler = nv.utils.windowResize(() => {
+        this.chart && this.chart.update && this.chart.update();
+      });
+
+      return this.chart;
+    }, options.chart['callback']);
   }
 
   /**
@@ -32,19 +65,8 @@ export class nvD3 implements OnChanges {
    * @param options
    */
   updateWithOptions(options) {
-    let self = this;
-
-    // Clearing
-    this.clearElement();
-
     // Exit if options are not yet bound
     if (!options) return;
-
-    // Initialize chart with specific type
-    this.chart = nv.models[options.chart.type]();
-
-    // Generate random chart ID
-    this.chart.id = Math.random().toString(36).substr(2, 15);
 
     for (let key in this.chart) {
       if (!this.chart.hasOwnProperty(key)) continue;
@@ -120,20 +142,6 @@ export class nvD3 implements OnChanges {
     }
 
     this.updateWithData(this.data);
-
-    nv.addGraph(() => {
-      if (!self.chart) return;
-
-      // Remove resize handler. Due to async execution should be placed here, not in the clearElement
-      if (self.chart.resizeHandler) self.chart.resizeHandler.clear();
-
-      // Update the chart when window resizes
-      self.chart.resizeHandler = nv.utils.windowResize(() => {
-        self.chart && self.chart.update && self.chart.update();
-      });
-
-      return self.chart;
-    }, options.chart['callback']);
   }
 
   /**

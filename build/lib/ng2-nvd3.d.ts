@@ -6,9 +6,11 @@ export declare class nvD3 implements OnChanges {
     data: any;
     el: HTMLElement;
     chart: any;
+    chartType: string;
     svg: any;
     constructor(elementRef: ElementRef);
     ngOnChanges(changes: SimpleChanges): void;
+    initChart(options: any): void;
     updateWithOptions(options: any): void;
     updateWithData(data: any): void;
     updateSize(): void;
