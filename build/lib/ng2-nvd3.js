@@ -14,7 +14,6 @@ var nvD3 = (function () {
         this.el = elementRef.nativeElement;
     }
     nvD3.prototype.ngOnChanges = function (changes) {
-        console.log('Changes:', changes);
         if (this.options) {
             if (!this.chart || this.chartType !== this.options.chart.type) {
                 this.initChart(this.options);
@@ -45,7 +44,6 @@ var nvD3 = (function () {
         }, options.chart['callback']);
     };
     nvD3.prototype.updateWithOptions = function (options) {
-        console.log('NVD3: Update with options');
         if (!options)
             return;
         for (var key in this.chart) {
@@ -118,7 +116,6 @@ var nvD3 = (function () {
         this.updateWithData(this.data);
     };
     nvD3.prototype.updateWithData = function (data) {
-        console.log('NVD3: Update with data');
         if (data) {
             {
                 var svgElement = this.el.querySelector('svg');
