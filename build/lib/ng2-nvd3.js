@@ -1,25 +1,13 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 var core_1 = require('@angular/core');
-var nvD3 = (function () {
-    function nvD3(elementRef) {
+var nvD3Component = (function () {
+    function nvD3Component(elementRef) {
         this.el = elementRef.nativeElement;
     }
-    nvD3.prototype.ngOnChanges = function () {
+    nvD3Component.prototype.ngOnChanges = function () {
         this.updateWithOptions(this.options);
     };
-    nvD3.prototype.updateWithOptions = function (options) {
+    nvD3Component.prototype.updateWithOptions = function (options) {
         var self = this;
         this.clearElement();
         if (!options)
@@ -101,7 +89,7 @@ var nvD3 = (function () {
             return self.chart;
         }, options.chart['callback']);
     };
-    nvD3.prototype.updateWithData = function (data) {
+    nvD3Component.prototype.updateWithData = function (data) {
         if (data) {
             d3.select(this.el).select('svg').remove();
             var h, w;
@@ -122,7 +110,7 @@ var nvD3 = (function () {
             this.svg.datum(data).call(this.chart);
         }
     };
-    nvD3.prototype.configure = function (chart, options, chartType) {
+    nvD3Component.prototype.configure = function (chart, options, chartType) {
         if (chart && options) {
             for (var key in chart) {
                 if (!chart.hasOwnProperty(key))
@@ -157,7 +145,7 @@ var nvD3 = (function () {
             }
         }
     };
-    nvD3.prototype.configureEvents = function (dispatch, options) {
+    nvD3Component.prototype.configureEvents = function (dispatch, options) {
         if (dispatch && options) {
             for (var key in dispatch) {
                 if (!dispatch.hasOwnProperty(key))
@@ -169,7 +157,7 @@ var nvD3 = (function () {
             }
         }
     };
-    nvD3.prototype.clearElement = function () {
+    nvD3Component.prototype.clearElement = function () {
         this.el.innerHTML = '';
         if (this.chart && this.chart.tooltip && this.chart.tooltip.id) {
             d3.select('#' + this.chart.tooltip.id()).remove();
@@ -188,15 +176,16 @@ var nvD3 = (function () {
             this.chart.resizeHandler.clear();
         this.chart = null;
     };
-    nvD3 = __decorate([
-        core_1.Component({
-            selector: 'nvd3',
-            inputs: ['options', 'data'],
-            template: ""
-        }),
-        __param(0, core_1.Inject(core_1.ElementRef)), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], nvD3);
-    return nvD3;
+    nvD3Component.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'nvd3',
+                    inputs: ['options', 'data'],
+                    template: ""
+                },] },
+    ];
+    nvD3Component.ctorParameters = function () { return [
+        { type: core_1.ElementRef, decorators: [{ type: core_1.Inject, args: [core_1.ElementRef,] },] },
+    ]; };
+    return nvD3Component;
 }());
-exports.nvD3 = nvD3;
+exports.nvD3Component = nvD3Component;

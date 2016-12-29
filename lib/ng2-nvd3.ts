@@ -7,7 +7,7 @@ declare var d3, nv: any;
   template: ``
 })
 
-export class nvD3 {
+export class nvD3Component {
   options: any;
   data: any;
   el: any;
