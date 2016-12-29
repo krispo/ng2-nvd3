@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { nvD3Component } from './ng2-nvd3.component';
+import { nvD3 } from './ng2-nvd3.component';
 
 @NgModule({
-    declarations: [nvD3Component],
-    exports: [nvD3Component]
+    declarations: [nvD3],
+    exports: [nvD3]
 })
 export class NvD3Module { }
