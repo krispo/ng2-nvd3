@@ -9,6 +9,7 @@ typings
 *.map.js
 *.ngFactory.ts
 *.ngsummary.json
+*.metadata.json
 .vscode
 npm-debug.log
 Thumbs.db

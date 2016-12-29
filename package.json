@@ -12,8 +12,8 @@
   ],
   "homepage": "https://github.com/krispo/ng2-nvd3",
   "license": "MIT",
-  "main": "build/lib/index.js",
-  "typings": "build/lib/index.d.ts",
+  "main": "./index.js",
+  "typings": "./index.d.ts",
   "scripts": {
     "pretest": "npm run build",
     "test": "karma start karma.conf.js",
