@@ -1,2 +1,2 @@
-export * from './lib/ng2-nvd3.component';
-export * from './lib/ng2-nvd3.module';
+export { nvD3Component } from './lib/ng2-nvd3.component';
+export { NvD3Module } from './lib/ng2-nvd3.module';
