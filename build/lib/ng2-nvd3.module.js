@@ -1,16 +1,16 @@
 "use strict";
 var core_1 = require('@angular/core');
-var ng2_nvd3_1 = require('./ng2-nvd3');
-var nvD3 = (function () {
-    function nvD3() {
+var ng2_nvd3_component_1 = require('./ng2-nvd3.component');
+var NvD3Module = (function () {
+    function NvD3Module() {
     }
-    nvD3.decorators = [
+    NvD3Module.decorators = [
         { type: core_1.NgModule, args: [{
-                    declarations: [ng2_nvd3_1.nvD3Component],
-                    exports: [ng2_nvd3_1.nvD3Component]
+                    declarations: [ng2_nvd3_component_1.nvD3Component],
+                    exports: [ng2_nvd3_component_1.nvD3Component]
                 },] },
     ];
-    nvD3.ctorParameters = function () { return []; };
-    return nvD3;
+    NvD3Module.ctorParameters = function () { return []; };
+    return NvD3Module;
 }());
-exports.nvD3 = nvD3;
+exports.NvD3Module = NvD3Module;

@@ -8,4 +8,5 @@ typings
 /compiled
 *.map.js
 *.ngFactory.ts
+*.ngsummary.json
 .vscode

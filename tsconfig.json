@@ -12,9 +12,15 @@
     "outDir": "build"
   },
   "files": [
-    "index.ts"
+    "index.ts",
+    "lib/ng2-nvd3.component.ts",
+    "lib/ng2-nvd3.module.ts",
+    "test/ng2-nvd3.spec.ts",
+    "test/vendor.ts",
+    "test/spec.d.ts",
+    "typings/browser.d.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "angularCompilerOptions": {
+    "genDir": "compiled"
+  }
 }

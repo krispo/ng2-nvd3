@@ -1,6 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Component, OnInit, NgModule } from '@angular/core';
-import { nvD3Component } from '../lib/ng2-nvd3';
+import { nvD3Component } from '../lib/ng2-nvd3.component';
 
 declare let describe, beforeEach, it, expect, d3: any;
 let currentChartType: string;

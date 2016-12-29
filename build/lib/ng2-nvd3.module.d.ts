@@ -1,2 +1,2 @@
-export declare class nvD3 {
+export declare class NvD3Module {
 }
