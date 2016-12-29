@@ -6,8 +6,6 @@ build/test
 app
 typings
 /compiled
-*.metadata.json
 *.map.js
-*.js
 *.ngFactory.ts
 .vscode
