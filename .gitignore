@@ -17,3 +17,4 @@ Thumbs.db
 *.js
 *.map
 *.d.ts
+!test/spec.d.ts
