@@ -1,20 +1,28 @@
-.idea
+# Folders
 node_modules
 examples
 coverage
 build/test
 app
 typings
+
+# Generated files
 /compiled
 *.map.js
 *.ngFactory.ts
 *.ngsummary.json
 *.metadata.json
-.vscode
+*.map
+*.d.ts
+*.js
 npm-debug.log
 Thumbs.db
 .DS_Store
-*.js
-*.map
-*.d.ts
+
+# IDE
+.vscode
+.idea
+
+# Keep
 !test/spec.d.ts
+!karma.conf.js
