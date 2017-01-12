@@ -1,6 +1,10 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Component, OnInit, NgModule } from '@angular/core';
-import { nvD3Component } from '../lib/ng2-nvd3.component';
+import { async, TestBed, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+
+import { nvD3 } from '../lib/ng2-nvd3.component';
+import { NvD3Module } from '../lib/ng2-nvd3.module';
 
 declare let describe, beforeEach, it, expect, d3: any;
 let currentChartType: string;
@@ -30,73 +34,67 @@ const chartTypes = [
 // Define Main Component
 //
 @Component({
-  selector: 'main',
-  template: `
-    <div>
+    template: `
       <h1 class="type">{{options.chart.type}}</h1>
       <nvd3 [options]="options" [data]="data"></nvd3>
-    </div>
-  `
+    `
 })
-
-@NgModule({
-  declarations: [nvD3Component]
-})
-class Main {
-  options;
-  data;
-  ngOnInit() {
-    this.options = allOptions[currentChartType];
-    this.data = allData[currentChartType];
-  }
+class TestHostComponent {
+  options = allOptions[currentChartType];
+  data = allData[currentChartType];
 }
 
 //
 // Define Tests
 //
-const prepare = () => {
-  document.body.innerHTML = '';
-
-  let main = document.createElement('main');
-  main.setAttribute('class', 'main')
-  document.body.appendChild(main);
-}
-
 const runTests = () => {
   describe('ng2-nvd3 tests:', () => {
+    let testHost: TestHostComponent;
+    let component: nvD3;
+    let fixture: ComponentFixture<TestHostComponent>;
 
-    beforeEach(prepare);
+    function createComponent(type = 'lineChart') {
+      currentChartType = type;
+      fixture = TestBed.createComponent(TestHostComponent);
+      testHost = fixture.componentInstance;
+      component = fixture.debugElement.children[1].componentInstance;
+      fixture.detectChanges();
+    }
 
-    it('true is true', () => {
-      expect(true).toEqual(true)
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+          imports: [NvD3Module],
+          declarations: [TestHostComponent]
+        })
+          .compileComponents();
+    }));
+
+    it('should create the component', () => {
+      createComponent();
+      expect(component).toBeDefined();
     });
-
-    it('main element should be created', () => {
-      expect(document.querySelectorAll('.main').length).toEqual(1);
-    })
 
     chartTypes.forEach((type) => {
-      it(type + ' chart type should be created correctly', (done) => {
-        currentChartType = type;
-        platformBrowserDynamic().bootstrapModule(Main)
-          .then((main) => {
-            let options = main.instance.options;
-            let h1 = document.querySelector('.type');
-            expect(h1.textContent).toEqual(options.chart.type);
+      it(`${type} chart type should be created correctly`, (done) => {
+        createComponent(type);
+        let options = component.options;
+        let h1 = fixture.debugElement.query(By.css('.type'))
+        expect(h1.nativeElement.innerHTML).toEqual(options.chart.type);
 
-            let nvd3 = document.querySelector('nvd3');
-            expect(nvd3).toBeDefined();
+        let nvd3 = fixture.debugElement.query(By.css('nvd3'))
+        expect(nvd3).not.toBeNull();
+        expect(nvd3).toBeDefined();
 
-            let svg = nvd3.querySelector('svg');
-            expect(svg).toBeDefined();
-            if (options.chart.height) expect(svg.getAttribute('height')).toEqual(options.chart.height + 'px');
+        let svg = nvd3.nativeElement.querySelector('svg');
+        expect(svg).toBeDefined();
 
-            done();
-          })
-          .catch(err => console.error(err));
-      })
+        if (options.chart.height) {
+          expect(svg.getAttribute('height')).toEqual(options.chart.height + 'px');
+        }
+
+        done();
+      });
     });
-
   });
 }
 

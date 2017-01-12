@@ -1,19 +1,19 @@
-import { Component, OnInit, OnChanges, ElementRef, Inject } from '@angular/core';
+import { Component, OnInit, OnChanges, ElementRef, Inject, Input } from '@angular/core';
 declare var d3, nv: any;
 
 @Component({
   selector: 'nvd3',
-  inputs: ['options', 'data'],
   template: ``
 })
-export class nvD3 {
-  options: any;
-  data: any;
+export class nvD3 implements OnChanges {
+  @Input() options: any;
+  @Input() data: any;
+
   el: any;
   chart: any;
   svg: any;
 
-  constructor( @Inject(ElementRef) elementRef: ElementRef) {
+  constructor(private elementRef: ElementRef) {
     this.el = elementRef.nativeElement;
   }
 
