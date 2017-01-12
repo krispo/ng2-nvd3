@@ -9,7 +9,7 @@ module.exports = function (config) {
       'test/*.spec.ts': ['webpack', 'sourcemap']
     },
     webpack: {
-      devtool: 'inline-source-map',
+      devtool: 'source-map',
       module: {
         loaders: [
           {

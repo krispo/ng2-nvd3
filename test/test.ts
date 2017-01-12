@@ -29,6 +29,6 @@ getTestBed().initTestEnvironment(
 // Then we find all the tests.
 let context = require.context('./', true, /\.spec\.ts/);
 // And load the modules.
-context.keys().map(context);
+context('./ng2-nvd3.spec.ts');
 // Finally, start Karma to run the tests.
 __karma__.start();
