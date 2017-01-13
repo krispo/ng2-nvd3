@@ -8,14 +8,16 @@
     "removeComments": true,
     "noImplicitAny": false,
     "declaration": true,
-    "sourceMap": false,
-    "outDir": "build"
+    "sourceMap": false
   },
   "files": [
-    "lib/ng2-nvd3.ts",
+    "lib/ng2-nvd3.component.ts",
+    "lib/ng2-nvd3.module.ts",
     "test/ng2-nvd3.spec.ts",
-    "test/vendor.ts",
     "test/spec.d.ts",
     "typings/browser.d.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "compiled"
+  }
 }
