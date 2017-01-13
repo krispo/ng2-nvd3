@@ -1,5 +1,5 @@
 {
-  "name": "@jrmce/ng2-nvd3",
+  "name": "ng2-nvd3",
   "version": "1.1.8",
   "description": "Angular2 component for NVD3.js reusable charting library",
   "keywords": [
@@ -23,7 +23,7 @@
   "author": "Konstantin Skipor",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jrmce/ng2-nvd3.git"
+    "url": "https://github.com/krispo/ng2-nvd3.git"
   },
   "devDependencies": {
     "es6-promise": "^3.0",
