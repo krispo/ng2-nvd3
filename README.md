@@ -44,6 +44,7 @@ export class Main implements OnInit{
   data;
   ngOnInit(){
     this.options = {
+      resizeTimeout:300,  
       chart: {
         type: 'discreteBarChart',
         height: 450,
@@ -165,8 +166,16 @@ export class Main {
 * Angular2 - v2.0.0-rc1 
 
 #### 1.0.7
-* Angular2 - v2.0.0-beta.3 
-    
-
+* Angular2 - v2.0.0-beta.3
+ 
+#### 1.1.8
+* Angular2 - v2.4.0
+* Angular modules support
+* AOT support
+ 
+#### 1.2.0    
+* Added property `resizeTimeout` to control how frequently the `chart.update` should be done.
+* Update `ngOnChanges` to call `updateWithData` when `data` is changed.
+ 
 ## License
 MIT
