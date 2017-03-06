@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, ElementRef, Inject, Input } from '@angular/core';
+import { Component, OnChanges, ElementRef, Input, SimpleChanges } from '@angular/core';
 declare var d3, nv: any;
 
 @Component({
@@ -17,8 +17,16 @@ export class nvD3 implements OnChanges {
     this.el = elementRef.nativeElement;
   }
 
-  ngOnChanges() {
-    this.updateWithOptions(this.options);
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.hasOwnProperty('options') || changes.hasOwnProperty('data')) {
+      if (changes['options']) {
+        this.updateWithOptions(this.options);
+      }
+      if (changes['data']) {
+        this.updateWithData(this.data);
+      }
+    }
+
   }
 
   updateWithOptions(options) {
@@ -115,7 +123,11 @@ export class nvD3 implements OnChanges {
 
       // Update the chart when window resizes
       self.chart.resizeHandler = nv.utils.windowResize(function () {
-        self.chart && self.chart.update && self.chart.update();
+        let rzTimeout = setTimeout(() => {
+          clearTimeout(rzTimeout);
+          self.chart && self.chart.update && self.chart.update();
+        }, self.options.resizeTimeout || 250);
+
       });
 
       return self.chart;
@@ -141,7 +153,6 @@ export class nvD3 implements OnChanges {
       } else {
         this.svg.attr('width', '100%').style({ width: '100%' });
       }
-
       this.svg.datum(data).call(this.chart);
     }
   }
