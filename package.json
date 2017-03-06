@@ -1,7 +1,7 @@
 {
-  "name": "ng2-nvd3",
-  "version": "1.1.3",
-  "description": "Angular2 component for NVD3.js reusable charting library",
+  "name": "@bijujoseph/ng2-nvd3",
+  "version": "1.2.0",
+  "description": "Angular2 component for NVD3.js reusable charting library, a fork from https://github.com/jrmce/ng2-nvd3",
   "keywords": [
     "angular2",
     "ng2",
@@ -10,44 +10,46 @@
     "component",
     "directive"
   ],
-  "homepage": "https://github.com/krispo/ng2-nvd3",
+  "homepage": "https://github.com/bijujoseph/ng2-nvd3",
   "license": "MIT",
-  "main": "build/lib/ng2-nvd3.js",
-  "typings": "build/lib/ng2-nvd3.d.ts",
+  "main": "./index.js",
+  "typings": "./index.d.ts",
   "scripts": {
     "pretest": "npm run build",
     "test": "karma start karma.conf.js",
-    "build": "rm -rf build && tsc",
+    "build": "rm -rf build && ngc -p ./tsconfig.publish.json",
     "prepublish": "typings install && npm run build"
   },
   "author": "Konstantin Skipor",
   "repository": {
     "type": "git",
-    "url": "https://github.com/krispo/ng2-nvd3.git"
+    "url": "https://github.com/bijujoseph/ng2-nvd3.git"
   },
   "devDependencies": {
     "es6-promise": "^3.0",
     "es6-shim": "^0.35",
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.21",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-coverage": "^0.5.3",
-    "karma-jasmine": "^0.3.7",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^1.7.0",
-    "reflect-metadata": "0.1.3",
-    "rxjs": "5.0.0-beta.6",
-    "ts-loader": "^0.8",
-    "typescript": "^1.8.10",
-    "typings":"^0.8.1",
-    "zone.js": "^0.6.12"
+    "karma-webpack": "^2.0.1 ",
+    "reflect-metadata": "0.1.9",
+    "rxjs": "^5.0.1",
+    "ts-loader": "^1.3.3",
+    "typescript": "~2.0.3",
+    "typings": "^0.8.1",
+    "webpack": "^1.14.0",
+    "zone.js": "^0.7.5"
   },
   "dependencies": {
-    "@angular/common": "^2.0.0-rc.4",
-    "@angular/compiler": "^2.0.0-rc.4",
-    "@angular/core": "^2.0.0-rc.4",
-    "@angular/platform-browser": "^2.0.0-rc.4",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
+    "@angular/common": "^2.4.0",
+    "@angular/compiler": "^2.4.0",
+    "@angular/compiler-cli": "^2.4.0",
+    "@angular/core": "^2.4.0",
+    "@angular/platform-browser": "^2.4.0",
+    "@angular/platform-browser-dynamic": "^2.4.0",
     "d3": "^3.5.15",
     "nvd3": "^1.8.2"
   }

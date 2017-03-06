@@ -11,11 +11,7 @@
     "sourceMap": false
   },
   "files": [
-    "lib/ng2-nvd3.component.ts",
-    "lib/ng2-nvd3.module.ts",
     "index.ts",
-    "test/ng2-nvd3.spec.ts",
-    "test/spec.d.ts",
     "typings/browser.d.ts"
   ],
   "angularCompilerOptions": {

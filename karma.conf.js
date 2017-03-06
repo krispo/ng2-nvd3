@@ -2,11 +2,10 @@ module.exports = function (config) {
   config.set({
     basePath: '.',
     files: [
-      'test/vendor.ts',
-      'test/*.spec.ts'
+      'test/test.ts'
     ],
     preprocessors: {
-      'test/vendor.ts': ['webpack', 'sourcemap'],
+      'test/test.ts': ['webpack', 'sourcemap'],
       'test/*.spec.ts': ['webpack', 'sourcemap']
     },
     webpack: {
@@ -35,6 +34,9 @@ module.exports = function (config) {
         base: 'Chrome',
         flags: ['--no-sandbox']
       }
+    },
+    mime: {
+      'text/x-typescript': ['ts','tsx']
     },
     reporters: ['progress', 'coverage'],
     coverageReporter: {
