@@ -31,28 +31,28 @@
     "@angular/core": "~2.4.9",
     "@angular/platform-browser": "~2.4.9",
     "@angular/platform-browser-dynamic": "~2.4.9",
-    "reflect-metadata": "^0.1.8",
+    "reflect-metadata": "^0.1.10",
     "rxjs": "5.2.0",
     "d3": "^3.5.15",
-    "nvd3": "^1.8.2"
+    "nvd3": "^1.8.5"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.5.38",
+    "@types/jasmine": "^2.5.43",
     "es6-promise": "^4.0.5",
-    "es6-shim": "^0.35.1",
-    "jasmine": "^2.5.2",
+    "es6-shim": "^0.35.3",
+    "jasmine": "^2.5.3",
     "jasmine-core": "2.5.2",
     "karma": "1.5.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.0.2",
+    "karma-jasmine": "^1.1.0",
     "karma-remap-istanbul": "^0.6.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "ts-loader": "^2.0",
-    "typescript": "^2.1.1",
-    "typings": "^2.0.0",
-    "webpack": "^2.2.1",
+    "typescript": "^2.2.1",
+    "typings": "^2.1.0",
+    "webpack": "^1.14.0",
     "zone.js": "^0.7.7"
   }
 }

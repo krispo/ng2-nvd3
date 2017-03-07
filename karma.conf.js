@@ -52,6 +52,9 @@ module.exports = function (config) {
     },
     colors: true,
     exclude: [],
+    mime: {
+      'text/x-typescript': ['ts', 'tsx']
+    },
     port: 9876
   });
 
