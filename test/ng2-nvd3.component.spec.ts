@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { nvD3 } from '../lib/ng2-nvd3';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import { NvD3Component } from '../lib/ng2-nvd3';
 
 TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 declare let d3: any;
@@ -61,7 +61,7 @@ describe('ng2-nvd3 tests:', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        nvD3,
+        NvD3Component,
         MainComponent
       ],
     });

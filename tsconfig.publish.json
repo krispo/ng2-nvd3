@@ -13,9 +13,7 @@
     "outDir": "build"
   },
   "files": [
-    "index.ts",
-    "lib/**/*.ts",
-    "test/ng2-nvd3.component.spec.ts"
+    "lib/index.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "compiled"

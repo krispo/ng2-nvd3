@@ -6,7 +6,7 @@ import { Component, OnChanges, ElementRef, Input, SimpleChanges } from '@angular
   selector: 'nvd3',
   template: ``
 })
-export class nvD3 implements OnChanges {
+export class NvD3Component implements OnChanges {
   @Input() options: any;
   @Input() data: any;
   el: HTMLElement;
