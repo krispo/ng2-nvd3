@@ -150,9 +150,17 @@ export class Main {
 
     npm test
     
+## Thanks
+
+Special thanks to [Tobias Walle](@TobiasWalle) and [MaibornWolff](@MaibornWolff) team for the huge updates #51 !
+    
 ## Change Log
 
-#### 1.1.3 (master)
+#### 2.0.0 (master)
+
+* Angular 4
+
+#### 1.1.3
 * Angular2 - v2.0.0-rc4 
 
 #### 1.1.2
