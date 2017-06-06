@@ -152,7 +152,7 @@ export class Main {
     
 ## Thanks
 
-Special thanks to [Tobias Walle](@TobiasWalle) and [MaibornWolff](@MaibornWolff) team for the huge updates #51 !
+Special thanks to [Tobias Walle](https://github.com/TobiasWalle) and [MaibornWolff](https://github.com/MaibornWolff) team for the huge updates [#51](https://github.com/krispo/ng2-nvd3/pull/51) !
     
 ## Change Log
 
