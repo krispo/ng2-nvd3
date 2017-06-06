@@ -98,7 +98,8 @@ var NvD3Component = (function () {
                 'y4Axis',
                 'yAxis',
                 'yAxis1',
-                'yAxis2'
+                'yAxis2',
+                'sankeyChart'
             ].indexOf(key) >= 0 ||
                 (key === 'stacked' && options.chart.type === 'stackedAreaChart')) {
                 this.configure(this.chart[key], options.chart[key], options.chart.type);
