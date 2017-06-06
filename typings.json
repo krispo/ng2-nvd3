@@ -1,4 +1,4 @@
-{
+ {
   "dependencies": {},
   "globalDependencies": {
     "d3": "registry:dt/d3#0.0.0+20160907005744",

@@ -16,6 +16,7 @@
     "lib/index.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "compiled"
+    "genDir": "compiled",
+    "skipMetadataEmit" : true
   }
 }

@@ -4,4 +4,4 @@ examples
 coverage
 app
 npm-debug*.log
-build/test
+package-lock.json

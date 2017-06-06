@@ -20,10 +20,10 @@
     "build": "rm -rf build && ngc -p ./tsconfig.publish.json",
     "prepublish": "typings install && npm run build"
   },
-  "author": "Maiborn Wolff",
+  "author": "Konstantin Skipor",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MaibornWolff/ng2-nvd3"
+    "url": "https://github.com/krispo/ng2-nvd3"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.10",
