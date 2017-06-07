@@ -5,12 +5,12 @@ import {ChartTypes} from './defs';
   selector: 'chart-selector',
   template: `
     <select (change)="select.emit($event.target.value)">
-      <option *ngFor="#type of cTypes">{{type}}</option>
+      <option *ngFor="let type of cTypes">{{type}}</option>
     </select>
   `
 })
 
-export class ChartSelector {
+export class SelectorComponent {
   @Output() select = new EventEmitter();
   cTypes = ChartTypes;
 
