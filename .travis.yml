@@ -1,19 +1,25 @@
 language: node_js
-node_js:
-- '4.0'
-- '4.1'
+node_js: stable
 
 sudo: false
+
+install: true # yarn bug
 
 branch:
   only:
     - master
 
-script:
-  - node_modules/.bin/karma start karma.conf.js --auto-watch --single-run --reporters dots,coverage
+cache:
+    directories:
+      - node_modules
 
 before_install:
-  - npm install -g tsd && tsd update
+  - npm install -g typings
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+
+
+script:
+  - typings install
+  - node_modules/.bin/karma start karma.conf.js --auto-watch --single-run --reporters dots,coverage
