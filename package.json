@@ -17,6 +17,7 @@
   "scripts": {
     "pretest": "npm run build",
     "test": "karma start karma.conf.js",
+    "test:ci": "NODE_ENV=test karma start karma.conf.js --auto-watch --single-run --reporters dots,coverage",
     "build": "rm -rf build && ngc -p ./tsconfig.publish.json",
     "prepublish": "typings install && npm run build"
   },
