@@ -15,7 +15,7 @@ Online demos:
 
     npm install ng2-nvd3
     
-it requires `angular2`, `d3` and `nvd3` as dependencies. Tested with the current `@angular` version `^2.0.0-rc.4`.
+it requires `angular2`, `d3` and `nvd3` as dependencies.
     
 ## Basic usage
 
@@ -24,14 +24,29 @@ Note: `d3` and `nvd3` should be also included in your project bundle.
 
 Simple discrete bar chart: 
     
+##### Module   
+ 
+```ts
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent }  from './app.component';
+import { NvD3Component } from 'ng2-nvd3';
+
+@NgModule({
+    imports:      [ BrowserModule ],
+    declarations: [ AppComponent, NvD3Component ],
+    bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+``` 
+
+##### Component
 ```js
 import {Component, OnInit} from '@angular/core';
-import {nvD3} from 'ng2-nvd3'
 declare let d3: any;
 
 @Component({
   selector: 'main',
-  directives: [nvD3],
   template: `
     <div>
       <nvd3 [options]="options" [data]="data"></nvd3>
@@ -39,7 +54,7 @@ declare let d3: any;
   `
 })
 
-export class Main implements OnInit{
+export class AppComponent implements OnInit{
   options;
   data;
   ngOnInit(){
@@ -113,39 +128,6 @@ export class Main implements OnInit{
 }
 ```    
 
-### Usage directive `api`
-
-No need to use `api` as in angular 1 case. We can get access to directive instance from parent component via `@ViewChild`:
-
-```js
-import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
-import {nvD3} from 'ng2-nvd3';
-
-@Component({
-  selector: 'main',
-  directives: [nvD3],
-  template: `<div><nvd3 [options]="options" [data]="data"></nvd3></div>`
-})
-export class Main {
-  options;
-  data;
-
-  @ViewChild(nvD3)
-  nvD3: nvD3;
-
-  ngOnInit(){
-    this.options = {...};
-    this.data = [...];
-  }
-
-  ngAfterViewInit() {
-    // this.nvD3 - directive instance
-    // for example, to update the chart
-    this.nvD3.chart.update()
-  } 
-}
-```
-
 ## Tests
 
     npm test
@@ -156,7 +138,7 @@ Special thanks to [Tobias Walle](https://github.com/TobiasWalle) and [MaibornWol
     
 ## Change Log
 
-#### 2.0.0 (master)
+#### 2.0.0-rc1 (master)
 
 * Angular 4
 

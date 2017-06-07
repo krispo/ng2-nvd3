@@ -1,0 +1,6 @@
+node_modules/
+test/
+typings/
+tsconfig.json
+typings.json
+compiled/

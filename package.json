@@ -1,6 +1,6 @@
 {
   "name": "ng2-nvd3",
-  "version": "2.0.0",
+  "version": "2.0.0-rc1",
   "description": "Angular2 component for NVD3.js reusable charting library",
   "keywords": [
     "angular2",
@@ -32,13 +32,12 @@
     "nvd3": "^1.8.5"
   },
   "devDependencies": {
-    "@angular/common": "2.4.9",
-    "@angular/compiler": "2.4.9",
-    "@angular/compiler-cli": "2.4.9",
-    "@angular/core": "2.4.9",
-    "@angular/platform-browser": "2.4.9",
-    "@angular/platform-browser-dynamic": "2.4.9",
-    "@types/jasmine": "^2.5.43",
+    "@angular/common": "^2.4 || ^4.0",
+    "@angular/compiler": "^2.4 || ^4.0",
+    "@angular/compiler-cli": "^2.4 || ^4.0",
+    "@angular/core": "^2.4 || ^4.0",
+    "@angular/platform-browser": "^2.4 || ^4.0",
+    "@angular/platform-browser-dynamic": "^2.4 || ^4.0",
     "es6-promise": "^4.0.5",
     "es6-shim": "^0.35.3",
     "jasmine": "^2.5.3",
