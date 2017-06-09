@@ -1,6 +1,6 @@
 {
   "name": "ng2-nvd3",
-  "version": "2.0.0-rc1",
+  "version": "2.0.0-rc2",
   "description": "Angular2 component for NVD3.js reusable charting library",
   "keywords": [
     "angular2",
