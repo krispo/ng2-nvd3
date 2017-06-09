@@ -1,8 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
-import { SelectorComponent } from './chart-selector.component'
-import { NvD3Component } from '//cdn.rawgit.com/krispo/ng2-nvd3/master/lib/index.ts'
+import { SelectorComponent } from './chart-selector.component';
+import { NvD3Component } from 'ng2-nvd3';
 
 @NgModule({
     imports:      [ BrowserModule ],
