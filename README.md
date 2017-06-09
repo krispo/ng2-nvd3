@@ -138,7 +138,7 @@ Special thanks to [Tobias Walle](https://github.com/TobiasWalle) and [MaibornWol
     
 ## Change Log
 
-#### 2.0.0-rc1 (master)
+#### 2.0.0-rc2 (master)
 
 * Angular 4
 

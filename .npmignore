@@ -1,6 +1,5 @@
+coverage/
 node_modules/
 test/
-typings/
 tsconfig.json
-typings.json
-compiled/
+karma.conf.js
