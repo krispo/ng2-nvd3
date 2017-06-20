@@ -10,6 +10,7 @@ export declare class NvD3Component implements OnChanges {
     svg: any;
     constructor(elementRef: ElementRef);
     ngOnChanges(changes: SimpleChanges): void;
+    ngOnDestroy(): void;
     initChart(options: any): void;
     updateWithOptions(options: any): void;
     updateWithData(data: any): void;

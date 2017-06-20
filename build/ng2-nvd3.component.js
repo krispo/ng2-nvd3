@@ -24,6 +24,9 @@ var NvD3Component = (function () {
             }
         }
     };
+    NvD3Component.prototype.ngOnDestroy = function () {
+        this.clearElement();
+    };
     NvD3Component.prototype.initChart = function (options) {
         var _this = this;
         this.clearElement();
