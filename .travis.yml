@@ -21,5 +21,6 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
+  - npm install
   - typings install
   - ./node_modules/.bin/karma start karma.conf.js --auto-watch --single-run --reporters dots,coverage
