@@ -61,5 +61,6 @@ module.exports = function (config) {
   if (process.env.TRAVIS) {
     config.browser = ['chrome_travis_ci'];
     config.singleRun = true;
+    config.browserNoActivityTimeout = 90000;
   }
 };
