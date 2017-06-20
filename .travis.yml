@@ -23,4 +23,4 @@ before_install:
 
 script:
   - typings install
-  - node_modules/.bin/karma start karma.conf.js --auto-watch --single-run --reporters dots,coverage
+  - ./node_modules/.bin/karma start karma.conf.js --auto-watch --single-run --reporters dots,coverage
