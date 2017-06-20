@@ -43,6 +43,10 @@ module.exports = function (config) {
       chrome_travis_ci: {
         base: 'Chrome',
         flags: ['--no-sandbox']
+      },
+      phantom_travis_ci: {
+        base: 'PhantomJS',
+        flags: ['--no-sandbox']
       }
     },
     reporters: ['progress', 'coverage', 'karma-remap-istanbul'],
@@ -59,7 +63,7 @@ module.exports = function (config) {
   });
 
   if (process.env.TRAVIS) {
-    config.browser = ['chrome_travis_ci'];
+    config.browser = ['phantom_travis_ci'];
     config.singleRun = true;
     config.browserNoActivityTimeout = 90000;
   }
