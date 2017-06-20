@@ -1,12 +1,12 @@
 /// <reference path="../typings/globals/d3/index.d.ts" />
 /// <reference path="../typings/globals/nvd3/index.d.ts" />
-import { Component, OnChanges, ElementRef, Input, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnDestroy, ElementRef, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'nvd3',
   template: ``
 })
-export class NvD3Component implements OnChanges {
+export class NvD3Component implements OnChanges, OnDestroy {
   @Input() options: any;
   @Input() data: any;
   el: HTMLElement;
