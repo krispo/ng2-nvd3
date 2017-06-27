@@ -1,9 +1,13 @@
 .idea
+.vscode
+.DS_Store
+Thumbs.db
+
 node_modules
 examples
 coverage
-app
-npm-debug*.log
-package-lock.json
 compiled
 typings
+
+npm-debug*.log
+package-lock.json
