@@ -51,7 +51,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "ts-loader": "^2.0",
-    "typescript": "^2.2.1",
+    "typescript": "2.3.4",
     "typings": "^2.1.0",
     "webpack": "^1.14.0",
     "zone.js": "^0.7.7"
