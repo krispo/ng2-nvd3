@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/krispo/ng2-nvd3.svg?branch=master)](https://travis-ci.org/krispo/ng2-nvd3)
 [![NPM Version](http://img.shields.io/npm/v/ng2-nvd3.svg?style=flat)](https://www.npmjs.org/package/ng2-nvd3)
 
-Angular2 component for nvd3. It has similar technique as [angular-nvd3](http://krispo.github.io/angular-nvd3) for angular 1, but designed for angular 2 and without extra features (like extended mode) you won't need.
+Angular component for nvd3. It has similar technique as [angular-nvd3](http://krispo.github.io/angular-nvd3) for angular 1, but designed for angular 2+ and without extra features (like extended mode) you won't need.
 
 ## Demos
 
@@ -15,7 +15,7 @@ Online demos:
 
     npm install ng2-nvd3
     
-it requires `angular2`, `d3` and `nvd3` as dependencies.
+it requires `angular2+`, `d3` and `nvd3` as dependencies.
     
 ## Basic usage
 
@@ -32,6 +32,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import { NvD3Component } from 'ng2-nvd3';
 
+// d3 and nvd3 should be included somewhere
+import 'd3';
+import 'nvd3';
+
 @NgModule({
     imports:      [ BrowserModule ],
     declarations: [ AppComponent, NvD3Component ],
@@ -42,7 +46,7 @@ export class AppModule { }
 
 ##### Component
 ```js
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 declare let d3: any;
 
 @Component({
@@ -51,13 +55,17 @@ declare let d3: any;
     <div>
       <nvd3 [options]="options" [data]="data"></nvd3>
     </div>
-  `
+  `,
+  styleUrls: [
+     '../../node_modules/nvd3/build/nv.d3.css'
+   ],
+   encapsulation: ViewEncapsulation.None
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   options;
   data;
-  ngOnInit(){
+  ngOnInit() {
     this.options = {
       chart: {
         type: 'discreteBarChart',
@@ -138,7 +146,7 @@ Special thanks to [Tobias Walle](https://github.com/TobiasWalle) and [MaibornWol
     
 ## Change Log
 
-#### 2.0.0-rc2 (master)
+#### 2.0.0-rc3 (master)
 
 * Angular 4
 
