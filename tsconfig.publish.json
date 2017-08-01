@@ -14,10 +14,10 @@
     "outDir": "build"
   },
   "files": [
-    "lib/index.ts"
+    "index.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "compiled",
-    "skipMetadataEmit" : true
+    "genDir": "build",
+    "skipTemplateCodegen": true
   }
 }
