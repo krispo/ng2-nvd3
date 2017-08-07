@@ -30,15 +30,15 @@ Simple discrete bar chart:
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
-import { NvD3Component } from 'ng2-nvd3';
+import { NvD3Module } from 'ng2-nvd3';
 
 // d3 and nvd3 should be included somewhere
 import 'd3';
 import 'nvd3';
 
 @NgModule({
-    imports:      [ BrowserModule ],
-    declarations: [ AppComponent, NvD3Component ],
+    imports:      [ BrowserModule, NvD3Module ],
+    declarations: [ AppComponent ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
