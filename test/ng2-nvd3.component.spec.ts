@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { NvD3Component } from '../lib/';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { By } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { NvD3Component } from '../lib/ng2-nvd3.component';
 
 TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 declare let d3: any;
