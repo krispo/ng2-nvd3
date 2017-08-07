@@ -147,7 +147,11 @@ Special thanks to [Tobias Walle](https://github.com/TobiasWalle) and [MaibornWol
     
 ## Change Log
 
-#### 2.0.0-rc3 (master)
+#### 2.0.0 (master)
+
+Fixed `aot` issue [#104](https://github.com/krispo/ng2-nvd3/pull/104) 
+
+#### 2.0.0-rc3
 
 * Angular 4
 
