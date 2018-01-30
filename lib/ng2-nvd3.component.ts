@@ -102,6 +102,7 @@ export class NvD3Component implements OnChanges, OnDestroy {
         'discretebar',
         'distX',
         'distY',
+        'focus',
         'interactiveLayer',
         'legend',
         'lines',
