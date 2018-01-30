@@ -69,6 +69,7 @@ var NvD3Component = (function () {
                 'discretebar',
                 'distX',
                 'distY',
+                'focus',
                 'interactiveLayer',
                 'legend',
                 'lines',
