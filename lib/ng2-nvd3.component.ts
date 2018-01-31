@@ -1,6 +1,6 @@
-/// <reference path="../typings/globals/d3/index.d.ts" />
-/// <reference path="../typings/globals/nvd3/index.d.ts" />
 import { Component, OnChanges, OnDestroy, ElementRef, Input, SimpleChanges } from '@angular/core';
+import * as d3 from 'd3';
+import * as nv from 'nvd3';
 
 @Component({
   selector: 'nvd3',

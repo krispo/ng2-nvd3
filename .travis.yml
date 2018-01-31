@@ -15,7 +15,6 @@ cache:
       - node_modules
 
 before_install:
-  - npm install -g typings
   - npm install -g karma-cli
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
@@ -23,5 +22,4 @@ before_install:
 
 script:
   - npm install
-  - typings install
   - ./node_modules/.bin/karma start karma.conf.js --auto-watch --single-run --reporters dots,coverage

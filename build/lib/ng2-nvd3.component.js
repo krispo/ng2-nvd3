@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var d3 = require("d3");
+var nv = require("nvd3");
 var NvD3Component = (function () {
     function NvD3Component(elementRef) {
         this.el = elementRef.nativeElement;

@@ -1,7 +1,0 @@
- {
-  "dependencies": {},
-  "globalDependencies": {
-    "d3": "registry:dt/d3#0.0.0+20160907005744",
-    "nvd3": "registry:dt/nvd3#1.8.1+20160919061516"
-  }
-}

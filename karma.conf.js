@@ -19,6 +19,7 @@ module.exports = function (config) {
       'test/vendor.ts': ['webpack', 'sourcemap'],
       'test/*.spec.ts': ['webpack', 'sourcemap']
     },
+    logLevel: config.LOG_DEBUG,
     webpack: {
       devtool: 'source-map',
       module: {

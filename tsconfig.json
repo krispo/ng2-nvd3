@@ -10,7 +10,7 @@
     "noImplicitAny": false,
     "declaration": true,
     "sourceMap": false,
-    "types": ["jasmine"],
+    "types": ["jasmine", "d3", "nvd3"],
     "outDir": "build"
   },
   "include": [

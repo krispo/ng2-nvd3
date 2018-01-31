@@ -17,8 +17,7 @@
   "scripts": {
     "pretest": "npm run build",
     "test": "karma start karma.conf.js",
-    "build": "rm -rf build && ngc -p ./tsconfig.publish.json",
-    "prepublish": "typings install && npm run build"
+    "build": "rm -rf build && ngc -p ./tsconfig.publish.json"
   },
   "author": "Konstantin Skipor",
   "repository": {
@@ -26,10 +25,12 @@
     "url": "https://github.com/krispo/ng2-nvd3"
   },
   "dependencies": {
+    "@types/nvd3": "^1.8.38",
+    "@types/d3":"3.5.40",
+    "d3": "3.5.17",
+    "nvd3": "1.8.5",
     "reflect-metadata": "^0.1.10",
-    "rxjs": "5.2.0",
-    "d3": "^3.5.15",
-    "nvd3": "^1.8.5"
+    "rxjs": "5.2.0"
   },
   "devDependencies": {
     "@angular/common": "^2.4 || ^4.0",
@@ -38,13 +39,15 @@
     "@angular/core": "^2.4 || ^4.0",
     "@angular/platform-browser": "^2.4 || ^4.0",
     "@angular/platform-browser-dynamic": "^2.4 || ^4.0",
+    "@types/d3": "3.5.40",
     "@types/jasmine": "^2.5.51",
+    "@types/nvd3": "^1.8.38",
     "es6-promise": "^4.0.5",
     "es6-shim": "^0.35.3",
     "jasmine": "^2.5.3",
     "jasmine-core": "2.5.2",
-    "karma": "1.5.0",
-    "karma-chrome-launcher": "^2.0.0",
+    "karma": "2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-remap-istanbul": "^0.6.0",
@@ -52,7 +55,6 @@
     "karma-webpack": "^2.0.2",
     "ts-loader": "^2.0",
     "typescript": "2.3.4",
-    "typings": "^2.1.0",
     "webpack": "^1.14.0",
     "zone.js": "^0.7.7"
   }
