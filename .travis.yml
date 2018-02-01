@@ -1,7 +1,7 @@
 language: node_js
 node_js: stable
 
-sudo: false
+sudo: required
 dist: trusty
 
 install: true # yarn bug
