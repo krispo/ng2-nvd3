@@ -157,13 +157,12 @@ export class NvD3Component implements OnChanges, OnDestroy {
     if (data) {
 
       // Select the add <svg> element (create it if necessary) and to render the chart in
-      {
-        let svgElement = this.el.querySelector('svg');
-        if (!svgElement) {
-          this.svg = d3.select(this.el).append('svg');
-        } else {
-          this.svg = d3.select(svgElement);
-        }
+      let svgElement = this.el.querySelector('svg');
+      if (!svgElement) {
+        this.svg = d3.select(this.el).append('svg');
+      } else {
+        svgElement.querySelector('svg').remove();
+        this.svg = d3.select(svgElement);
       }
 
       this.updateSize();
