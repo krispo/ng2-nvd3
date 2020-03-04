@@ -1,6 +1,6 @@
 {
-  "name": "ng2-nvd3",
-  "version": "2.0.0",
+  "name": "@mike-j-w/ng2-nvd3",
+  "version": "2.0.2",
   "description": "Angular2 component for NVD3.js reusable charting library",
   "keywords": [
     "angular2",
@@ -17,8 +17,7 @@
   "scripts": {
     "pretest": "npm run build",
     "test": "karma start karma.conf.js",
-    "build": "rm -rf build && ngc -p ./tsconfig.publish.json",
-    "prepublish": "typings install && npm run build"
+    "build": "rm -rf build && ngc -p ./tsconfig.publish.json"
   },
   "author": "Konstantin Skipor",
   "repository": {

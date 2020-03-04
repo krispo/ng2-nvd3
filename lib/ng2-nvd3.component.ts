@@ -161,7 +161,9 @@ export class NvD3Component implements OnChanges, OnDestroy {
       if (!svgElement) {
         this.svg = d3.select(this.el).append('svg');
       } else {
-        svgElement.querySelector('svg').remove();
+        if (svgElement.querySelector('svg')) {
+          svgElement.querySelector('svg').remove();
+        }
         this.svg = d3.select(svgElement);
       }
 
