@@ -113,14 +113,15 @@ var NvD3Component = (function () {
     };
     NvD3Component.prototype.updateWithData = function (data) {
         if (data) {
-            {
-                var svgElement = this.el.querySelector('svg');
-                if (!svgElement) {
-                    this.svg = d3.select(this.el).append('svg');
+            var svgElement = this.el.querySelector('svg');
+            if (!svgElement) {
+                this.svg = d3.select(this.el).append('svg');
+            }
+            else {
+                if (svgElement.querySelector('svg')) {
+                    svgElement.querySelector('svg').remove();
                 }
-                else {
-                    this.svg = d3.select(svgElement);
-                }
+                this.svg = d3.select(svgElement);
             }
             this.updateSize();
             this.svg.datum(data).call(this.chart);

@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/krispo/ng2-nvd3.svg?branch=master)](https://travis-ci.org/krispo/ng2-nvd3)
 [![NPM Version](http://img.shields.io/npm/v/ng2-nvd3.svg?style=flat)](https://www.npmjs.org/package/ng2-nvd3)
 
-Angular component for nvd3 (uses d3 v3!). It has similar technique as [angular-nvd3](http://krispo.github.io/angular-nvd3) for angular 1, but designed for angular 2+ and without extra features (like extended mode) you won't need.
+A fork of krispo's Angular component for nvd3 (uses d3 v3!). It has similar technique as [angular-nvd3](http://krispo.github.io/angular-nvd3) for angular 1, but designed for angular 2+ and without extra features (like extended mode) you won't need.
 
 ## Demos
 
@@ -147,7 +147,11 @@ Special thanks to [Tobias Walle](https://github.com/TobiasWalle) and [MaibornWol
     
 ## Change Log
 
-#### 2.0.0 (master)
+#### 2.0.3 (master)
+
+Fixed resizing bug that produced duplicate sankey charts
+
+#### 2.0.0
 
 Fixed `aot` issue [#104](https://github.com/krispo/ng2-nvd3/pull/104) 
 
