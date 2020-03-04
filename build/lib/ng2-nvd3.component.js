@@ -118,7 +118,9 @@ var NvD3Component = (function () {
                 this.svg = d3.select(this.el).append('svg');
             }
             else {
-                svgElement.querySelector('svg').remove();
+                if (svgElement.querySelector('svg')) {
+                    svgElement.querySelector('svg').remove();
+                }
                 this.svg = d3.select(svgElement);
             }
             this.updateSize();
